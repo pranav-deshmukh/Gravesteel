@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://kncjihep4knv"]
+
+[ext_resource type="Script" uid="uid://cpr1af8rxb4b5" path="res://trees/pine_tree_spawner.gd" id="1_dkscf"]
+[ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="2_y066e"]
+
+[node name="TreeSpawner" type="StaticBody2D"]
+script = ExtResource("1_dkscf")
+tree_scene = ExtResource("2_y066e")

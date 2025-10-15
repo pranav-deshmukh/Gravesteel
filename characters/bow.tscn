@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://doa8qhjissjx5"]
+
+[ext_resource type="Texture2D" uid="uid://b1pvtvp2sylhn" path="res://Bow and Arrows.png" id="1_ekocr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ip5"]
+atlas = ExtResource("1_ekocr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhq3q"]
+atlas = ExtResource("1_ekocr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yms2t"]
+atlas = ExtResource("1_ekocr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv3eu"]
+atlas = ExtResource("1_ekocr")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oob1l"]
+atlas = ExtResource("1_ekocr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbhh8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhq3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yms2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv3eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oob1l")
+}],
+"loop": true,
+"name": &"bow_animate",
+"speed": 10.0
+}]
+
+[node name="Bow" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lbhh8")
+animation = &"bow_animate"
+autoplay = "bow_animate"
+frame_progress = 0.87712795
