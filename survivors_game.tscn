@@ -16,6 +16,22 @@ point_count = 5
 y_sort_enabled = true
 script = ExtResource("1_qclsr")
 
+[node name="CoinsCollected" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CoinsCollected"]
+texture_filter = 1
+offset_right = 349.0
+offset_bottom = 132.0
+color = Color(0.7184098, 0.6395594, 0.43901387, 1)
+
+[node name="Label" type="Label" parent="CoinsCollected/ColorRect"]
+layout_mode = 0
+offset_right = 349.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.81703126, 0.21579969, 0.24773318, 1)
+theme_override_font_sizes/font_size = 50
+max_lines_visible = 1
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true

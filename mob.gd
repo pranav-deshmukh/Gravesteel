@@ -28,4 +28,8 @@ func take_damage():
 		var smoke = smoke_scene.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+		var coin_scene = preload("res://coin.tscn")
+		var coin = coin_scene.instantiate()
+		get_parent().add_child(coin)
+		coin.global_position = global_position
 		queue_free()

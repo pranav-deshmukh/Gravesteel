@@ -3,7 +3,9 @@ extends CharacterBody2D
 signal health_depleted
 
 var health = 100.0
+@export var coins = 1
 
+@onready var coin_label = get_node("/root/Game/CoinsCollected/ColorRect/Label")
 
 func _physics_process(delta):
 	const SPEED = 600.0
@@ -29,3 +31,8 @@ func _physics_process(delta):
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
+
+
+func add_coins(value):
+	coins+=value
+	coin_label.text = str(coins) + " coins"
