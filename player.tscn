@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsw8raqgacxsc"]
+[gd_scene load_steps=8 format=3 uid="uid://dsw8raqgacxsc"]
 
 [ext_resource type="Script" uid="uid://bjpua3hfywlnl" path="res://player.gd" id="1_73bic"]
 [ext_resource type="PackedScene" uid="uid://1plbexydl5t5" path="res://characters/Characters(100x100)/Soldier/Soldier with shadows/maincharacter.tscn" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://gun.tscn" id="3_bt0kc"]
+[ext_resource type="Script" uid="uid://wehyo2yaxi8h" path="res://weapon_manager.gd" id="4_hqtel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
 size = Vector2(33, 51)
@@ -50,3 +51,6 @@ offset_bottom = -150.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_a5sny")
 value = 100.0
 show_percentage = false
+
+[node name="WeaponManager" type="Node" parent="."]
+script = ExtResource("4_hqtel")

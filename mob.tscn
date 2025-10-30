@@ -15,10 +15,10 @@ script = ExtResource("1_xhyow")
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(10, -27.999998)
-scale = Vector2(9.280001, 9.280001)
+scale = Vector2(9.440001, 9.440001)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -17)
-scale = Vector2(0.64, 0.64)
+position = Vector2(5, -20)
+scale = Vector2(0.39999998, 0.39999998)
 shape = SubResource("CircleShape2D_ypitm")
 debug_color = Color(0.701961, 0.282353, 0.352941, 0.419608)

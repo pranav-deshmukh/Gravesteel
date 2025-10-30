@@ -92,6 +92,8 @@ script = ExtResource("1_st2lq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(0.5600006, 0.5600006)
 sprite_frames = SubResource("SpriteFrames_gxfya")
 animation = &"hurt"
 autoplay = "walk"

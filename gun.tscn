@@ -21,14 +21,14 @@ rotation = -0.015313332
 gizmo_extents = 47.7
 
 [node name="Bow" parent="WeaponPivot" instance=ExtResource("3_kw0bs")]
-position = Vector2(28.996605, 0.44406915)
-rotation = 0.009883038
+position = Vector2(23.997183, 0.36750552)
+rotation = 0.009883037
 scale = Vector2(4.01725, 4.01725)
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Bow"]
 unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2(4.4806094, 0.024331093)
+position = Vector2(4.4806094, 0.024331283)
 rotation = 0.030944843
 scale = Vector2(0.24892654, 0.24892654)
 gizmo_extents = 30.6
