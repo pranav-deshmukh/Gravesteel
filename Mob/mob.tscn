@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2m608gyssept"]
+
+[ext_resource type="Script" uid="uid://ojg88pe48jk5" path="res://Mob/mob.gd" id="1_xhyow"]
+[ext_resource type="PackedScene" uid="uid://c6ee7ti4a7mmc" path="res://characters/Characters(100x100)/Orc/Orc with shadows/orcs.tscn" id="2_ubaqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ypitm"]
+radius = 56.596157
+
+[node name="Mob" type="CharacterBody2D"]
+collision_layer = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_xhyow")
+
+[node name="Orcs" parent="." instance=ExtResource("2_ubaqv")]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(10, -27.999998)
+scale = Vector2(9.440001, 9.440001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -20)
+scale = Vector2(0.39999998, 0.39999998)
+shape = SubResource("CircleShape2D_ypitm")
+debug_color = Color(0.701961, 0.282353, 0.352941, 0.419608)

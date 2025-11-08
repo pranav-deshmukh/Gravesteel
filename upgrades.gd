@@ -1,6 +1,7 @@
-extends Node
+extends Resource
+class_name UpgradesData
 
-var upgrades = [
+static var upgrades = [
 	{name = "Speed +10%", type = "speed", value = 1.1},
 	{name = "Max Health +20%", type = "health", value = 1.2},
 	{name = "Damage +15%", type = "damage", value = 1.15},

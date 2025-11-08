@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3elnfw0slpy8"]
+
+[ext_resource type="Script" uid="uid://b6q83ca0vklrc" path="res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_area.gd" id="1_2rqjh"]
+
+[node name="LightningExplosion" type="Node2D"]
+script = ExtResource("1_2rqjh")

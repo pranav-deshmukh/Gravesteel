@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://2ply7efm827n"]
+
+[ext_resource type="Script" uid="uid://buphbs44y1n0m" path="res://Chest/chest.gd" id="1_vbo4i"]
+[ext_resource type="Texture2D" uid="uid://dsb1gr4hnsuhf" path="res://Chest/Chest.png" id="2_urnrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj4rf"]
+atlas = ExtResource("2_urnrk")
+region = Rect2(0, 0, 21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07ty7"]
+atlas = ExtResource("2_urnrk")
+region = Rect2(21, 0, 21, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h07ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj4rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07ty7")
+}],
+"loop": false,
+"name": &"open",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o3n0"]
+size = Vector2(46.835094, 37.068974)
+
+[node name="Chest" type="Area2D"]
+scale = Vector2(2.5600007, 2.5600007)
+collision_layer = 16
+script = ExtResource("1_vbo4i")
+
+[node name="Open_animation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h07ny")
+animation = &"open"
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.4999998, -0.9999993)
+scale = Vector2(0.7900059, 0.8093022)
+shape = SubResource("RectangleShape2D_8o3n0")
+
+[node name="PromptLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Press E"
+horizontal_alignment = 1

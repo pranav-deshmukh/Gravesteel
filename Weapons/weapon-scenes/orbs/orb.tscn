@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dopjyt2euht7x"]
+
+[ext_resource type="Script" uid="uid://d2ace2endmoqb" path="res://Weapons/weapon-scenes/orbs/orb.gd" id="1_v1mrp"]
+[ext_resource type="Texture2D" uid="uid://c8liatbsqmlyt" path="res://pistol/assets/Collectables-Sheet.png" id="2_m2mxo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b48sq"]
+radius = 13.152946
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b48sq"]
+atlas = ExtResource("2_m2mxo")
+region = Rect2(97, 48, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f7hr"]
+atlas = ExtResource("2_m2mxo")
+region = Rect2(112, 48, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olb7e"]
+atlas = ExtResource("2_m2mxo")
+region = Rect2(127, 48, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4wnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b48sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f7hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olb7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Orb" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_v1mrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_b48sq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.3199997, 2.3199997)
+sprite_frames = SubResource("SpriteFrames_x4wnp")

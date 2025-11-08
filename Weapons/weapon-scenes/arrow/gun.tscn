@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cphcr81upg72i"]
+
+[ext_resource type="Script" uid="uid://bhbi365xsk225" path="res://Weapons/weapon-scenes/arrow/gun.gd" id="1_sluxj"]
+[ext_resource type="PackedScene" uid="uid://doa8qhjissjx5" path="res://characters/bow.tscn" id="3_kw0bs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nthgb"]
+radius = 987.0
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_sluxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nthgb")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(62, 0)
+rotation = -0.015313332
+gizmo_extents = 47.7
+
+[node name="Bow" parent="WeaponPivot" instance=ExtResource("3_kw0bs")]
+position = Vector2(23.997183, 0.36750552)
+rotation = 0.009883037
+scale = Vector2(4.01725, 4.01725)
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Bow"]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(4.4806094, 0.024331283)
+rotation = 0.030944843
+scale = Vector2(0.24892654, 0.24892654)
+gizmo_extents = 30.6
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.353
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

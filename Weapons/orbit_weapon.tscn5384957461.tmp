@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgdcx6tesx6iu"]
+
+[ext_resource type="Script" uid="uid://b508fnnl82m3q" path="res://Weapons/orbit_weapon.gd" id="1_7iax5"]
+[ext_resource type="PackedScene" uid="uid://dopjyt2euht7x" path="res://Weapons/orb.tscn" id="2_v1mrp"]
+
+[node name="OrbitWeapon" type="Node2D"]
+script = ExtResource("1_7iax5")
+orb_scene = ExtResource("2_v1mrp")

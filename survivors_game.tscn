@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=12 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
-[ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://player.tscn" id="2_a7q7f"]
-[ext_resource type="Texture2D" uid="uid://cp80kk7ve4gj2" path="res://grasstile.png" id="3_qqaft"]
-[ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://tree_spawner.tscn" id="4_qqaft"]
-[ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://UpgradeMenu.tscn" id="6_edxvn"]
+[ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://Player/player.tscn" id="2_a7q7f"]
+[ext_resource type="Texture2D" uid="uid://btk5l2psgy7pr" path="res://Mob/Skull&Bones.png" id="2_pk6fm"]
+[ext_resource type="Texture2D" uid="uid://cp80kk7ve4gj2" path="res://pistol/assets/grasstile.png" id="3_qqaft"]
+[ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://trees/tree_spawner.tscn" id="4_qqaft"]
+[ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://Weapons/UpgradeMenu.tscn" id="6_edxvn"]
+[ext_resource type="Texture2D" uid="uid://c24qn5ms0vywl" path="res://Weapons/GOLDEN GOODS.png" id="6_pk6fm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getvi"]
+atlas = ExtResource("6_pk6fm")
+region = Rect2(48.99595, 55.39116, 9.112839, 13.170944)
 
 [sub_resource type="Curve2D" id="Curve2D_cp6e5"]
 _data = {
@@ -12,11 +18,12 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jj1j"]
-bg_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edxvn"]
 bg_color = Color(0.16741043, 0.40969622, 0.6139475, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uxnc"]
+atlas = ExtResource("2_pk6fm")
+region = Rect2(10.260086, -0.54997635, 85.7997, 78.650024)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -29,15 +36,29 @@ texture_filter = 1
 offset_top = 39.0
 offset_right = 349.0
 offset_bottom = 121.0
-color = Color(0.7184098, 0.6395594, 0.43901387, 1)
+color = Color(0.7176471, 0.6392157, 0.4392157, 0)
 
-[node name="Label" type="Label" parent="CoinsCollected/ColorRect"]
+[node name="TextureRect2" type="TextureRect" parent="CoinsCollected/ColorRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 1.0
-offset_right = 347.0
-offset_bottom = 82.0
-theme_override_colors/font_color = Color(0.81703126, 0.21579969, 0.24773318, 1)
-theme_override_font_sizes/font_size = 50
+offset_left = 43.0
+offset_top = 15.0
+offset_right = 52.0
+offset_bottom = 64.0
+scale = Vector2(4.768706, 1.0438031)
+texture = SubResource("AtlasTexture_getvi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoinsCollected/ColorRect"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="CoinsCollected/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
 max_lines_visible = 1
 
 [node name="Timer" type="Timer" parent="."]
@@ -113,12 +134,46 @@ texture_filter = 1
 offset_top = -3.0000002
 offset_right = 4.0
 offset_bottom = 24.0
-scale = Vector2(478.64038, 1.5513769)
-theme_override_styles/background = SubResource("StyleBoxFlat_7jj1j")
+scale = Vector2(477.57632, 1.5513769)
 theme_override_styles/fill = SubResource("StyleBoxFlat_edxvn")
 show_percentage = false
 
-[node name="UpgradeMenu" parent="." instance=ExtResource("6_edxvn")]
+[node name="Orcs_Killed" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Orcs_Killed"]
+offset_left = 272.0
+offset_top = 42.0
+offset_right = 312.0
+offset_bottom = 82.0
+scale = Vector2(6.3600025, 2.0456114)
+color = Color(0.7647059, 0.64705884, 0.47843137, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Orcs_Killed/ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -4.402512
+offset_top = 4.8885136
+offset_right = 80.59749
+offset_bottom = 82.88851
+scale = Vector2(0.10062923, 0.35283402)
+texture = SubResource("AtlasTexture_3uxnc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Orcs_Killed/ColorRect"]
+layout_mode = 0
+offset_left = 3.6163511
+offset_top = 5.8662176
+offset_right = 43.616352
+offset_bottom = 54.86622
+scale = Vector2(0.1823901, 0.47169834)
+
+[node name="Label" type="Label" parent="Orcs_Killed/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="UpgradeMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="UpgradeMenu" parent="UpgradeMenu" instance=ExtResource("6_edxvn")]
 z_index = 23
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
