@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsw8raqgacxsc"]
+[gd_scene load_steps=10 format=3 uid="uid://dsw8raqgacxsc"]
 
 [ext_resource type="Script" uid="uid://bjpua3hfywlnl" path="res://Player/player.gd" id="1_73bic"]
 [ext_resource type="PackedScene" uid="uid://1plbexydl5t5" path="res://characters/Characters(100x100)/Soldier/Soldier with shadows/maincharacter.tscn" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://Weapons/weapon-scenes/arrow/gun.tscn" id="3_bt0kc"]
 [ext_resource type="Script" uid="uid://wehyo2yaxi8h" path="res://Weapons/weapon_manager.gd" id="4_hqtel"]
 [ext_resource type="PackedScene" uid="uid://i1ms0hal5uh2" path="res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_weapon.tscn" id="5_k53q1"]
+[ext_resource type="PackedScene" uid="uid://b4tf523itdm0g" path="res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.tscn" id="6_fhl08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csncd"]
 size = Vector2(33, 51)
@@ -55,4 +56,4 @@ show_percentage = false
 
 [node name="WeaponManager" type="Node" parent="."]
 script = ExtResource("4_hqtel")
-available_weapons = Array[PackedScene]([ExtResource("5_k53q1")])
+available_weapons = Array[PackedScene]([ExtResource("5_k53q1"), ExtResource("6_fhl08")])

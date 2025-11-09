@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfhtv00kvuw0n"]
+[gd_scene load_steps=4 format=3 uid="uid://dfhtv00kvuw0n"]
+
+[ext_resource type="Texture2D" uid="uid://dihdgfkvobdyn" path="res://Upgrade_menu_texture.png" id="1_1q508"]
+[ext_resource type="Texture2D" uid="uid://bqk1e00j7i725" path="res://Button_Texture_Upgrade_menu.png" id="2_ow8uj"]
 
 [sub_resource type="GDScript" id="GDScript_w5tj2"]
 script/source = "extends Control
@@ -10,22 +13,65 @@ signal upgrade_chosen(upgrade)
 func _ready():
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	# CRITICAL: Block mouse input - this is the key fix!
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	
-	# Set size to cover viewport
 	custom_minimum_size = get_viewport_rect().size
 	size = get_viewport_rect().size
-	
-	# Center it on screen (in case parent has offset)
 	position = Vector2.ZERO
-	
-	# Make it stay in place relative to camera
 	set_anchors_preset(Control.PRESET_FULL_RECT)
+	
+	# Set larger fixed size
+	if has_node(\"Panel\"):
+		var panel = $Panel
+		panel.custom_minimum_size = Vector2(700, 700)  # Make it bigger!
+		
+		if panel.has_node(\"TextureRect\"):
+			var texture_rect = panel.get_node(\"TextureRect\")
+			texture_rect.custom_minimum_size = Vector2(700, 700)
+			texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
+			
+			if texture_rect.has_node(\"VBoxContainer\"):
+				var vbox = texture_rect.get_node(\"VBoxContainer\")
+				vbox.add_theme_constant_override(\"separation\", 40)  # Space between buttons
+	
+	# Setup TextureButtons
+	_setup_texture_buttons()
 
+func _setup_texture_buttons():
+	var buttons = $\"Panel/TextureRect/VBoxContainer\".get_children()
+	for button in buttons:
+		if button is TextureButton:
+			button.custom_minimum_size = Vector2(650, 100)
+			button.size_flags_horizontal = Control.SIZE_FILL
+			button.stretch_mode = TextureButton.STRETCH_SCALE
+			button.ignore_texture_size = true
+			
+			if button.has_node(\"Label\"):
+				var label = button.get_node(\"Label\")
+				
+				# Set anchors to fill button
+				label.set_anchor(SIDE_LEFT, 0)
+				label.set_anchor(SIDE_TOP, 0)
+				label.set_anchor(SIDE_RIGHT, 1)
+				label.set_anchor(SIDE_BOTTOM, 1)
+				
+				# Reset offsets to 0
+				label.set_offset(SIDE_LEFT, 0)
+				label.set_offset(SIDE_TOP, 0)
+				label.set_offset(SIDE_RIGHT, 0)
+				label.set_offset(SIDE_BOTTOM, 0)
+				
+				# CENTER THE TEXT
+				label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+				label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+				
+				# INCREASE FONT SIZE
+				label.add_theme_font_size_override(\"font_size\", 32)
+				
+				#label.autowrap_mode = TextServer.AUTOWRAP_WORD_BOUNDED
+				label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				
 func show_upgrades_from_weapon_manager():
-	# Get weapon manager from player
 	var player = get_tree().get_first_node_in_group(\"player\")
 	if not player:
 		push_error(\"No player found!\")
@@ -36,28 +82,27 @@ func show_upgrades_from_weapon_manager():
 		push_error(\"No WeaponManager on player!\")
 		return
 	
-	# Get upgrade options from weapon manager
 	var options = weapon_manager.get_random_upgrade_options()
 	
 	if options.is_empty():
 		push_error(\"No upgrade options available!\")
 		return
 	
-	# Show the menu
 	visible = true
 	get_tree().paused = true
 	
 	# Center the panel on screen
-	if has_node(\"Panel\"):
-		var panel = $Panel
-		var viewport_size = get_viewport_rect().size
-		panel.position = (viewport_size - panel.size) / 2
+	_center_panel()
 	
 	# Setup buttons
-	var buttons = $\"Panel/VBoxContainer\".get_children()
+	var buttons = $\"Panel/TextureRect/VBoxContainer\".get_children()
 	for i in range(min(options.size(), buttons.size())):
 		var button = buttons[i]
-		button.text = options[i].name
+		
+		# Set text on the Label child, not the button itself
+		if button.has_node(\"Label\"):
+			button.get_node(\"Label\").text = options[i].name
+		
 		button.visible = true
 		
 		# Disconnect all existing connections
@@ -81,31 +126,29 @@ func _on_upgrade_pressed(selected_upgrade):
 	elif selected_upgrade.type == \"upgrade\":
 		selected_upgrade.weapon.upgrade()
 	
-	# Emit signal for any other systems that need to know
 	upgrade_chosen.emit(selected_upgrade)
 	
 	visible = false
 	get_tree().paused = false
 
-# Keep your old function for backward compatibility (if needed)
 func show_upgrades(all_upgrades):
 	visible = true
 	get_tree().paused = true
 	
-	# Center the panel on screen
-	if has_node(\"Panel\"):
-		var panel = $Panel
-		var viewport_size = get_viewport_rect().size
-		panel.position = (viewport_size - panel.size) / 2
+	_center_panel()
 	
 	var chosen = all_upgrades.duplicate()
 	chosen.shuffle()
 	var options = chosen.slice(0, 3)
 	
-	var buttons = $\"Panel/VBoxContainer\".get_children()
+	var buttons = $\"Panel/TextureRect/VBoxContainer\".get_children()
 	for i in range(min(3, buttons.size())):
 		var button = buttons[i]
-		button.text = options[i].name
+		
+		# Set text on Label child
+		if button.has_node(\"Label\"):
+			button.get_node(\"Label\").text = options[i].name
+		
 		button.visible = true
 		
 		# Disconnect all existing connections
@@ -114,10 +157,6 @@ func show_upgrades(all_upgrades):
 		
 		# Connect with ONE_SHOT flag
 		button.pressed.connect(_on_upgrade_pressed_old.bind(options[i]), CONNECT_ONE_SHOT)
-	
-	# Hide unused buttons if less than 3 options
-	#for i in range(options.size(), buttons.size()):
-		#buttons[i].visible = false
 
 func _on_upgrade_pressed_old(selected_upgrade):
 	print(\"Upgrade chosen\", selected_upgrade)
@@ -125,24 +164,31 @@ func _on_upgrade_pressed_old(selected_upgrade):
 	visible = false
 	get_tree().paused = false
 
-# Helper function to center the panel on screen
 func _center_panel():
 	if not has_node(\"Panel\"):
 		return
 	
 	var panel = $Panel
 	var viewport_size = get_viewport_rect().size
-	
-	# Center the panel
 	panel.position = (viewport_size - panel.size) / 2
 "
 
 [node name="Control" type="Control"]
 z_index = 44
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = SubResource("GDScript_w5tj2")
 
 [node name="Panel" type="Panel" parent="."]
@@ -150,16 +196,86 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("1_1q508")
 
-[node name="Button1" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+[node name="Button1" type="TextureButton" parent="Panel/TextureRect/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+texture_normal = ExtResource("2_ow8uj")
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/TextureRect/VBoxContainer/Button1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -7.0
+offset_right = 37.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.76, 0.47999018)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="TextureButton" parent="Panel/TextureRect/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+texture_normal = ExtResource("2_ow8uj")
+
+[node name="Label" type="Label" parent="Panel/TextureRect/VBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 38.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.76, 0.47999018)
+
+[node name="Button3" type="TextureButton" parent="Panel/TextureRect/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("2_ow8uj")
+
+[node name="Label" type="Label" parent="Panel/TextureRect/VBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 39.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.76, 0.47999018)

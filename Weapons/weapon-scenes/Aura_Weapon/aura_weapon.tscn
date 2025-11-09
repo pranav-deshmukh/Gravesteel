@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4tf523itdm0g"]
+
+[ext_resource type="Script" uid="uid://br4n5g08jirkc" path="res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.gd" id="1_6x27o"]
+[ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://smoke_explosion/circle_32.png" id="2_tqyqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrudn"]
+radius = 44.011364
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_6x27o")
+
+[node name="Circle32" type="Sprite2D" parent="."]
+scale = Vector2(2.999998, 2.999998)
+texture = ExtResource("2_tqyqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mrudn")

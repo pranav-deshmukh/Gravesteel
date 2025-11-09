@@ -45,8 +45,8 @@ func _on_player_coin_collected(current_coins):
 
 func _on_upgrade_chosen(upgrade):
 	print("\n=== APPLYING UPGRADE ===")
-	print("Upgrade type: ", upgrade.type)
-	print("Upgrade value: ", upgrade.value)
+	#print("Upgrade type: ", upgrade.type)
+	#print("Upgrade value: ", upgrade.value)
 	
 	# Convert to string to handle StringName (&"type") properly
 	var upgrade_type = str(upgrade.type)
