@@ -1,12 +1,13 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1763007176
+::res://::1763053340
 Button_Texture_Upgrade_menu.png::CompressedTexture2D::3531673096585662548::1762597194::1762597212::1::::<><><>0<>0<>c76735b4d1af28ac74bbc125f2a3989c<>res://.godot/imported/Button_Texture_Upgrade_menu.png-89b450753a430bf6fa68c62c3cf2b911.ctex::
 default_bus_layout.tres::AudioBusLayout::6564268947468103023::1760349056::0::1::::<><><>0<>0<><>::
 floating_text.gd::GDScript::5753870640701685210::1761721500::0::1::::<>Label<><>0<>0<><>::
 floating_text.tscn::PackedScene::26400409636287734::1762661624::0::1::::<><><>0<>0<><>::uid://cn8hn5tr7agog::::res://floating_text.gd
-game.gd::GDScript::8436459038756774411::1762595897::0::1::::<>Node2D<><>0<>0<><>::
+game.gd::GDScript::8436459038756774411::1763053129::0::1::::<>Node2D<><>0<>0<><>::
+portal3_spritesheet.png::CompressedTexture2D::6972941725495572572::1763053340::1763053340::1::::<><><>0<>0<>99d2c227a6bf8bd1244c0020ebadd179<>res://.godot/imported/portal3_spritesheet.png-76586cbc4359db699bf40f25c7763b54.ctex::
 README.md::TextFile::-1::1760607959::0::1::::<><><>0<>0<><>::
-survivors_game.tscn::PackedScene::8591458836669554224::1762529239::0::1::::<><><>0<>0<><>::uid://dsgxioo8wstff::::res://game.gd<>uid://dsw8raqgacxsc::::res://Player/player.tscn<>uid://btk5l2psgy7pr::::res://Mob/Skull&Bones.png<>uid://cp80kk7ve4gj2::::res://pistol/assets/grasstile.png<>uid://kncjihep4knv::::res://trees/tree_spawner.tscn<>uid://dfhtv00kvuw0n::::res://Weapons/UpgradeMenu.tscn<>uid://c24qn5ms0vywl::::res://Weapons/GOLDEN GOODS.png
+survivors_game.tscn::PackedScene::8591458836669554224::1763053153::0::1::::<><><>0<>0<><>::uid://dsgxioo8wstff::::res://game.gd<>uid://dsw8raqgacxsc::::res://Player/player.tscn<>uid://btk5l2psgy7pr::::res://Mob/Skull&Bones.png<>uid://cp80kk7ve4gj2::::res://pistol/assets/grasstile.png<>uid://kncjihep4knv::::res://trees/tree_spawner.tscn<>uid://dfhtv00kvuw0n::::res://Weapons/UpgradeMenu.tscn<>uid://c24qn5ms0vywl::::res://Weapons/GOLDEN GOODS.png
 upgrades.gd::GDScript::4463186258819827047::1761892595::0::1::::UpgradesData<>Resource<><>0<>0<><>::
 Upgrade_menu_texture.png::CompressedTexture2D::7735416589241400529::1762596994::1762597012::1::::<><><>0<>0<>d892eaa22303a626cbb444c2dff6b067<>res://.godot/imported/Upgrade_menu_texture.png-73555157e07cbb34c1fd9ef2c8179138.ctex::
 ::res://addons/::1760349056

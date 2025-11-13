@@ -4,19 +4,23 @@ extends Node2D
 @onready var player = $Player
 @onready var spawn_timer = $Timer  # Adjust if your timer has different path
 @onready var upgrade_data = preload("res://upgrades.gd").new()
-@onready var wave_label = $WaveLabel  # Adjust path
+@onready var wave_label = $WaveLabel/Label  # Adjust path
+@onready var portal = preload("res://Portal/portal.tscn")
+
+var current_portal = null
+
 
 
 @export var world_size: Vector2 = Vector2(8000, 8000)
 
 # Level system
 var current_level: int = 1
-var max_levels: int = 3
+var max_levels: int = 2
 
 # Wave system
 var current_wave: int = 0
-var waves_per_level: int = 3
-var wave_duration: float = 30.0
+var waves_per_level: int = 1
+var wave_duration: float = 5.0
 var wave_timer: float = 0.0
 var wave_active: bool = false
 
@@ -96,10 +100,20 @@ func end_wave():
 		print("=== LEVEL ", current_level, " COMPLETE ===")
 		spawn_portal()
 
+
 func spawn_portal():
 	print("!!! PORTAL SPAWNING !!!")
-	await get_tree().create_timer(3.0).timeout
-	next_level()
+	current_portal = portal.instantiate()
+	current_portal.global_position = player.global_position + Vector2(200, 0)
+	add_child(current_portal)
+	current_portal.connect("body_entered", Callable(self, "_on_portal_entered"))
+	
+func _on_portal_entered(body):
+	if body == player and current_portal != null:
+		print("Player entered portal!")
+		current_portal.queue_free()
+		current_portal = null
+		next_level()
 
 func next_level():
 	if current_level < max_levels:
