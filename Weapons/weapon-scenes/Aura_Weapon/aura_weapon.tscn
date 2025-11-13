@@ -1,19 +1,130 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4tf523itdm0g"]
+[gd_scene load_steps=19 format=3 uid="uid://b4tf523itdm0g"]
 
 [ext_resource type="Script" uid="uid://br4n5g08jirkc" path="res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.gd" id="1_6x27o"]
-[ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://smoke_explosion/circle_32.png" id="2_tqyqw"]
+[ext_resource type="Texture2D" uid="uid://cusjye5qbxhhu" path="res://Weapons/weapon-scenes/Aura_Weapon/FireCast_96x96.png" id="2_tqyqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrudn"]
 radius = 44.011364
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqyqw"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1152, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2db1n"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1248, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkd1f"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1344, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc8q0"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1440, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_052dm"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1536, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2fs5"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1632, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx2lb"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1728, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ltew"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1920, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2upu"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1824, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r6in"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1728, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yeos"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1632, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5s5a"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1536, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hujf5"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1440, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gss1"]
+atlas = ExtResource("2_tqyqw")
+region = Rect2(1344, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3oc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqyqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2db1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc8q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_052dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2fs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx2lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ltew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2upu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r6in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yeos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5s5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hujf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gss1")
+}],
+"loop": true,
+"name": &"Fire_Aura",
+"speed": 15.0
+}]
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_6x27o")
 
-[node name="Circle32" type="Sprite2D" parent="."]
-scale = Vector2(2.999998, 2.999998)
-texture = ExtResource("2_tqyqw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mrudn")
+
+[node name="FireEffect" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -3
+texture_filter = 1
+scale = Vector2(3.28, 3.28)
+sprite_frames = SubResource("SpriteFrames_l3oc4")
+animation = &"Fire_Aura"
+frame_progress = 0.8428302

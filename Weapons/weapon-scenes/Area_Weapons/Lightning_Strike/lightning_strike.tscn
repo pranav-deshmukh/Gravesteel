@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk8axgf7l2kmg"]
+
+[ext_resource type="Texture2D" uid="uid://boa0bqh682lhg" path="res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/Lightning_animation.png" id="1_jevf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2lfe"]
+atlas = ExtResource("1_jevf4")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgnjd"]
+atlas = ExtResource("1_jevf4")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sen8h"]
+atlas = ExtResource("1_jevf4")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mefs"]
+atlas = ExtResource("1_jevf4")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icbk3"]
+atlas = ExtResource("1_jevf4")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2v2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2lfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgnjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sen8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mefs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icbk3")
+}],
+"loop": false,
+"name": &"Lightning_strike",
+"speed": 20.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2.7599998, 2.7599998)
+sprite_frames = SubResource("SpriteFrames_y2v2l")
+animation = &"Lightning_strike"
+frame = 4
+frame_progress = 1.0

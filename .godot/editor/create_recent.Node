@@ -1,3 +1,4 @@
+AnimatedSprite2D
 CollisionShape2D
 Area2D
 Label
@@ -8,7 +9,6 @@ Control
 Node2D
 HBoxContainer
 ColorRect
-AnimatedSprite2D
 Node
 Marker2D
 Button

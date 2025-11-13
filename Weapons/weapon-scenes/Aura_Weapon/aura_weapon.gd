@@ -9,6 +9,7 @@ extends Area2D  # Changed: Direct Area2D inheritance
 var hit_cooldowns: Dictionary = {}
 var cooldown_ms: int = 500  # 0.5 seconds between hits
 
+
 # Player reference
 var player: CharacterBody2D
 
@@ -20,6 +21,8 @@ func _ready():
 	collision_mask = 2  # Detect enemies (layer 2)
 	
 	print("FireAura ready with damage: ", damage)
+	if %FireEffect:
+		%FireEffect.play("Fire_Aura")
 
 func _process(delta):
 	if player and is_instance_valid(player):
