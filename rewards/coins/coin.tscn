@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://twoa5wnwytjn"]
 
 [ext_resource type="Script" uid="uid://l2eqxsgpbw55" path="res://rewards/coins/coin.gd" id="1_0t63x"]
-[ext_resource type="Texture2D" uid="uid://co3rsqhnpmea5" path="res://pistol/assets/Crystals.png" id="1_d5gmh"]
+[ext_resource type="Texture2D" uid="uid://c24qn5ms0vywl" path="res://Weapons/GOLDEN GOODS.png" id="2_wk6nv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0t63x"]
 radius = 20.024984
@@ -12,14 +12,14 @@ script = ExtResource("1_0t63x")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(13.75, 16)
-scale = Vector2(0.88709676, 1.0968661)
-texture = ExtResource("1_d5gmh")
+scale = Vector2(3.0470948, 2.3879201)
+texture = ExtResource("2_wk6nv")
 region_enabled = true
-region_rect = Rect2(0, 3.25, 31.875, 24.51)
+region_rect = Rect2(49.75924, 56.89058, 7.350395, 10.193466)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, 14)
-scale = Vector2(0.4800012, 0.4800012)
+scale = Vector2(1.0800016, 1.0800016)
 shape = SubResource("CircleShape2D_0t63x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

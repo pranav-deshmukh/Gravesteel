@@ -21,8 +21,9 @@ func _ready():
 	collision_mask = 2  # Detect enemies (layer 2)
 	
 	print("FireAura ready with damage: ", damage)
-	if %FireEffect:
+	if %FireEffect && %FireEffect2:
 		%FireEffect.play("Fire_Aura")
+		%FireEffect2.play("Fire_Aura")
 
 func _process(delta):
 	if player and is_instance_valid(player):

@@ -15,12 +15,12 @@ var current_portal = null
 
 # Level system
 var current_level: int = 1
-var max_levels: int = 2
+var max_levels: int = 3
 
 # Wave system
 var current_wave: int = 0
-var waves_per_level: int = 1
-var wave_duration: float = 5.0
+var waves_per_level: int = 3
+var wave_duration: float = 30.0
 var wave_timer: float = 0.0
 var wave_active: bool = false
 
@@ -29,17 +29,17 @@ var level_configs = {
 	1: {
 		"enemy_health_mult": 1.0,
 		"enemy_speed_mult": 1.0,
-		"spawn_rate": 1.0
+		"spawn_rate": 2.0
 	},
 	2: {
 		"enemy_health_mult": 1.5,
 		"enemy_speed_mult": 1.2,
-		"spawn_rate": 1.5
+		"spawn_rate": 4
 	},
 	3: {
 		"enemy_health_mult": 2.0,
 		"enemy_speed_mult": 1.5,
-		"spawn_rate": 2.0
+		"spawn_rate": 5
 	}
 }
 
