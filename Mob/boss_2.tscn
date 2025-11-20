@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://bpwcncc0e6cgg"]
+
+[ext_resource type="Script" uid="uid://djbu3gfoh4s47" path="res://Mob/boss_1.gd" id="1_3uayf"]
+[ext_resource type="Texture2D" uid="uid://cdw2y1n1318sw" path="res://Mob/zombie_walk.png" id="2_3uayf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr3ux"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4qom"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnoke"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5px0"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpjmr"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xgop"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iskg"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rsco"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tcdx"]
+atlas = ExtResource("2_3uayf")
+region = Rect2(512, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gm5jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr3ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4qom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnoke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5px0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpjmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xgop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iskg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rsco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tcdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uayf"]
+size = Vector2(51, 118)
+
+[node name="Boss1" type="CharacterBody2D"]
+collision_layer = 2
+platform_floor_layers = 0
+script = ExtResource("1_3uayf")
+
+[node name="boss1" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(2.0839362, 2.0839362)
+sprite_frames = SubResource("SpriteFrames_gm5jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 18)
+scale = Vector2(0.64, 0.64)
+shape = SubResource("RectangleShape2D_3uayf")

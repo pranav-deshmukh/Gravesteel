@@ -1,11 +1,18 @@
 # weapon_manager.gd
 extends Node
 
+
 @export var available_weapons: Array[PackedScene] = []
 
 var active_weapons: Array = []
 var max_weapons: int = 6
 
+@onready var weapon_display = get_tree().root.get_node("Game/HUD/ColorRect")
+
+func _ready():
+	if not weapon_display:
+		push_error("WeaponDisplay not found!")
+		
 func add_weapon(weapon_scene: PackedScene):
 	if active_weapons.size() >= max_weapons:
 		push_error("Max weapons reached!")
@@ -15,8 +22,20 @@ func add_weapon(weapon_scene: PackedScene):
 	add_child(weapon)
 	active_weapons.append(weapon)
 	
+	if weapon_display:
+		var weapon_name = get_weapon_class_name(weapon)
+		weapon_display.add_weapon(weapon_name)
+	
+	print("Added weapon: ", weapon.name)
 	#print("Added weapon: ", weapon.name)
-
+func get_weapon_class_name(weapon) -> String:
+	# Get the actual class name
+	if weapon.get_script():
+		var script_path = weapon.get_script().resource_path
+		var file_name = script_path.get_file().get_basename()
+		return file_name
+	return weapon.get_class()
+	
 func upgrade_weapon(weapon_name: String):
 	for weapon in active_weapons:
 		if weapon.name == weapon_name:

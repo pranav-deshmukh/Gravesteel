@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://dnrwma7rvia1u"]
+
+[ext_resource type="Script" uid="uid://drhxgvq0m1xai" path="res://Mob/skull_enemy.gd" id="1_1faba"]
+[ext_resource type="Texture2D" uid="uid://c1vinuscbflih" path="res://Mob/skeleton_walk.png" id="2_1faba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6x5r"]
+atlas = ExtResource("2_1faba")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0xci"]
+atlas = ExtResource("2_1faba")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjxcq"]
+atlas = ExtResource("2_1faba")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pe7l"]
+atlas = ExtResource("2_1faba")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_477b6"]
+atlas = ExtResource("2_1faba")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk6a8"]
+atlas = ExtResource("2_1faba")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g1o4"]
+atlas = ExtResource("2_1faba")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b8my"]
+atlas = ExtResource("2_1faba")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33f0w"]
+atlas = ExtResource("2_1faba")
+region = Rect2(512, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmske"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6x5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0xci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjxcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pe7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_477b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk6a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g1o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b8my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33f0w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33f0w"]
+radius = 23.086792
+
+[node name="Skull_Enemy" type="CharacterBody2D"]
+collision_layer = 2
+platform_floor_layers = 0
+script = ExtResource("1_1faba")
+
+[node name="skull" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(2.4400005, 2.4400005)
+sprite_frames = SubResource("SpriteFrames_pmske")
+animation = &"walk"
+frame_progress = 0.20369187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_33f0w")

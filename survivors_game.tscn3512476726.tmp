@@ -3,24 +3,24 @@
 [ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
 [ext_resource type="Script" uid="uid://84m1gqintjon" path="res://Weapons/weapon_display.gd" id="2_3uxnc"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://Player/player.tscn" id="2_a7q7f"]
+[ext_resource type="Texture2D" uid="uid://bkgdalt5tli4h" path="res://Weapons/Menu_icon.png" id="2_getvi"]
 [ext_resource type="Texture2D" uid="uid://btk5l2psgy7pr" path="res://Mob/Skull&Bones.png" id="2_pk6fm"]
-[ext_resource type="Texture2D" uid="uid://6j3oi0hatjmj" path="res://Chest/Key.png" id="3_3uxnc"]
 [ext_resource type="Texture2D" uid="uid://cp80kk7ve4gj2" path="res://pistol/assets/grasstile.png" id="3_qqaft"]
 [ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://trees/tree_spawner.tscn" id="4_qqaft"]
 [ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://Weapons/UpgradeMenu.tscn" id="6_edxvn"]
 [ext_resource type="Texture2D" uid="uid://c24qn5ms0vywl" path="res://Weapons/GOLDEN GOODS.png" id="6_pk6fm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk6fm"]
-bg_color = Color(0.535721, 0.36571983, 0.29870552, 0.6117647)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.34901962, 0.36078432, 0.36078432, 0.5529412)
-corner_radius_top_left = 500
-corner_radius_top_right = 500
-corner_radius_bottom_right = 500
-corner_radius_bottom_left = 500
+bg_color = Color(0.7411765, 0.5568628, 0.42745098, 0.6745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.39215687, 0.40784314, 0.40784314, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_getvi"]
 atlas = ExtResource("6_pk6fm")
@@ -41,162 +41,123 @@ region = Rect2(10.260086, -0.54997635, 85.7997, 78.650024)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
-scale = Vector2(1.0079106, 1)
 script = ExtResource("1_qclsr")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="HUD"]
-offset_left = 52.0
+unique_name_in_owner = true
+offset_left = 51.0
 offset_top = 120.0
-offset_right = 67.300545
-offset_bottom = 155.5
-scale = Vector2(7.320002, 2)
-color = Color(0.8980392, 0.6784314, 0.62352943, 0)
+offset_right = 73.05881
+offset_bottom = 160.0
+scale = Vector2(4.7600026, 2)
+color = Color(0.5561738, 0.30054113, 0.24219066, 1)
 script = ExtResource("2_3uxnc")
 
 [node name="WeaponSlot1" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 0.7692305
 offset_top = 1.5
 offset_right = 0.7692305
 offset_bottom = 1.5
-scale = Vector2(0.060119435, 0.21724744)
+scale = Vector2(1.4059678, -16.52725)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot1"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 29.88224
-offset_top = 25.314367
-offset_right = 69.88225
-offset_bottom = 65.31437
-scale = Vector2(1.0879856, 1.2093229)
-texture = ExtResource("3_3uxnc")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="WeaponSlot2" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 7.513659
-offset_top = 2.0000002
-offset_right = 107.51366
-offset_bottom = 102.0
-scale = Vector2(0.06011952, 0.21724775)
+offset_left = 8.461535
+offset_top = 2.0
+offset_right = 8.461535
+offset_bottom = 2.0
+scale = Vector2(1.3521216, -16.42327)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot2"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.577076
-offset_top = -21.069292
-offset_right = 11.422924
-offset_bottom = 18.930702
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.142566, 1.142566)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="WeaponSlot3" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 15.300543
-offset_top = 2.0
-offset_right = 115.300545
-offset_bottom = 102.0
-scale = Vector2(0.060119353, 0.21724716)
+offset_left = 14.915958
+offset_top = 1.9999995
+offset_right = 14.915958
+offset_bottom = 1.9999995
+scale = Vector2(1.321352, -16.520477)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot3"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 60.698288
-offset_top = 50.628727
-offset_right = 100.69829
-offset_bottom = 90.62872
-scale = Vector2(0.21451272, -0.019275274)
+offset_left = -0.15899163
+offset_right = 48.841007
+offset_bottom = 50.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="WeaponSlot4" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 1.36612
-offset_top = 26.5
-offset_right = 101.36612
-offset_bottom = 126.5
-scale = Vector2(0.060119353, 0.21724716)
+offset_left = 1.3461537
+offset_top = 21.0
+offset_right = 1.3461537
+offset_bottom = 21.0
+scale = Vector2(1.4193486, -17.236343)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot4"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.999996
-offset_top = -20.0
-offset_right = 19.999996
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9997443, 0.9997443)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="WeaponSlot5" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 7.5136595
-offset_top = 26.5
-offset_right = 107.51366
-offset_bottom = 126.5
-scale = Vector2(0.06265649, 0.22935097)
+offset_left = 8.461535
+offset_top = 20.5
+offset_right = 8.461535
+offset_bottom = 20.5
+scale = Vector2(1.3751986, -17.28327)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot5"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9997465, 0.9997465)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="WeaponSlot6" type="Panel" parent="HUD/ColorRect"]
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 15.437155
-offset_top = 26.0
-offset_right = 115.43716
-offset_bottom = 126.0
-scale = Vector2(0.06558383, 0.23699358)
+offset_left = 15.336126
+offset_top = 21.0
+offset_right = 15.336126
+offset_bottom = 21.0
+scale = Vector2(1.3640802, -17.237045)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
 
 [node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot6"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.9997465, 0.9997465)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.09171624, -0.019275274)
+texture = ExtResource("2_getvi")
 
 [node name="CoinsCollected" type="CanvasLayer" parent="."]
 

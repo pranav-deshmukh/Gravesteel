@@ -13,7 +13,7 @@ var health = max_health
 @export var coins: int = 0
 @export var orcs_killed = 0
 var level_need_coins: int = 25
-var kills_for_next_chest: int = 50
+var kills_for_next_chest: int = 5
 
 @onready var weapon_manager = $WeaponManager
 @onready var coin_label = get_node("/root/Game/CoinsCollected/ColorRect/HBoxContainer/Label")
