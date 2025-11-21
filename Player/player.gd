@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal health_depleted
 signal coin_collected(coins)
 
-@export var move_speed: float = 600.0
+@export var move_speed: float = 400
 @export var max_health: float = 100.0
 @export var damage: float = 10.0
 @export var attack_speed: float = 1.0
@@ -31,7 +31,8 @@ func _ready():
 	# Start with orbit weapon
 	var orbit_weapon = preload("res://Weapons/weapon-scenes/orbs/orbit_weapon.tscn")
 	var lightning_weapon = preload("res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_weapon.tscn")
-	weapon_manager.add_weapon(orbit_weapon)
+	var bow_arrow = preload("res://Weapons/weapon-scenes/arrow/gun.tscn")
+	weapon_manager.add_weapon(bow_arrow)
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

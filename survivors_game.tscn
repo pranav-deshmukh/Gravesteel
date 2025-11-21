@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=14 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
 [ext_resource type="Script" uid="uid://84m1gqintjon" path="res://Weapons/weapon_display.gd" id="2_3uxnc"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://Player/player.tscn" id="2_a7q7f"]
 [ext_resource type="Texture2D" uid="uid://btk5l2psgy7pr" path="res://Mob/Skull&Bones.png" id="2_pk6fm"]
-[ext_resource type="Texture2D" uid="uid://6j3oi0hatjmj" path="res://Chest/Key.png" id="3_3uxnc"]
 [ext_resource type="Texture2D" uid="uid://cp80kk7ve4gj2" path="res://pistol/assets/grasstile.png" id="3_qqaft"]
 [ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://trees/tree_spawner.tscn" id="4_qqaft"]
 [ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://Weapons/UpgradeMenu.tscn" id="6_edxvn"]
@@ -73,7 +72,6 @@ offset_top = 25.314367
 offset_right = 69.88225
 offset_bottom = 65.31437
 scale = Vector2(1.0879856, 1.2093229)
-texture = ExtResource("3_3uxnc")
 
 [node name="WeaponSlot2" type="Panel" parent="HUD/ColorRect"]
 custom_minimum_size = Vector2(100, 100)
