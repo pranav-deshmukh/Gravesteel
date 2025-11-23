@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://chpxx6cs7ragn"]
+
+[ext_resource type="Script" uid="uid://drngh4me7uu02" path="res://Weapons/Projectile_Weapons/Dagger/dagger_projectile.gd" id="1_07jqe"]
+[ext_resource type="Texture2D" uid="uid://be6miv8yrqkl7" path="res://Weapons/RPG_Weapons.png" id="2_07jqe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07jqe"]
+
+[node name="dagger_projectile" type="Area2D"]
+scale = Vector2(0.36000034, 0.27529448)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_07jqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -1.5634427
+scale = Vector2(3.959959, 3.959959)
+texture = ExtResource("2_07jqe")
+region_enabled = true
+region_rect = Rect2(352.7907, 54.55893, 14.657043, 30.588562)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07jqe")

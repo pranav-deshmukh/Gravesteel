@@ -292,7 +292,7 @@ stretch_mode = 1
 
 [node name="TreeSpawner" parent="." instance=ExtResource("4_qqaft")]
 position = Vector2(-4, -2)
-trees_per_chunk = 2
+spawn_radius_chunks = 5
 
 [node name="gemcollected" type="CanvasLayer" parent="."]
 

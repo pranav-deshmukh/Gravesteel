@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq4m26jrjetyt"]
+
+[ext_resource type="Texture2D" uid="uid://celhihecwtpqf" path="res://Weapons/Projectile_Weapons/boomerang_blades/Suriken.png" id="1_mvg6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvg6r"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bds0g"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vjx5"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klo7s"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w24a7"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhiew"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdw8m"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfqax"]
+atlas = ExtResource("1_mvg6r")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p32hs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvg6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bds0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vjx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klo7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w24a7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhiew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdw8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfqax")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 15.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(2.6799998, 2.6799998)
+sprite_frames = SubResource("SpriteFrames_p32hs")
+animation = &"spin"

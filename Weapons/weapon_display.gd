@@ -25,6 +25,7 @@ func load_weapon_icons():
 		"orbit_weapon": preload("res://pistol/projectile.png"),
 		"lightning_weapon": preload("res://pistol/projectile.png"),
 		"aura_weapon": preload("res://pistol/projectile.png"),
+		"gun":preload("res://characters/Arrow(Projectile)/Arrow01(32x32).png")
 		# Add more weapons as needed
 	}
 

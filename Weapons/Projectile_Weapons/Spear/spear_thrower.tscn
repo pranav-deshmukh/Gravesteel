@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmvw0gb4e7aul"]
+
+[ext_resource type="Script" uid="uid://b1pghi8jf85bm" path="res://Weapons/Projectile_Weapons/Spear/spear_thrower.gd" id="1_sjbxc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sjbxc"]
+radius = 170.83618
+
+[node name="SpearThrower" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_sjbxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sjbxc")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(46, 0)
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot"]
+unique_name_in_owner = true
+position = Vector2(20, 0)
+
+[node name="Timer" type="Timer" parent="."]

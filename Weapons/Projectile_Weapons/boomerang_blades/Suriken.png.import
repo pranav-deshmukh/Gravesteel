@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnqscbs1vipqr"
-path="res://.godot/imported/lightning_icon.png-47e82a8546f7e1888ddde16fffc751dd.ctex"
+uid="uid://celhihecwtpqf"
+path="res://.godot/imported/Suriken.png-fc7d401c516b3702b7fbc0dfc2a640d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pistol/assets/lightning_icon.png"
-dest_files=["res://.godot/imported/lightning_icon.png-47e82a8546f7e1888ddde16fffc751dd.ctex"]
+source_file="res://Weapons/Projectile_Weapons/boomerang_blades/Suriken.png"
+dest_files=["res://.godot/imported/Suriken.png-fc7d401c516b3702b7fbc0dfc2a640d9.ctex"]
 
 [params]
 

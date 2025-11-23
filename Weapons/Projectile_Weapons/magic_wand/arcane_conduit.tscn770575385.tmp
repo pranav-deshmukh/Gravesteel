@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bunksw265pbns"]
+
+[ext_resource type="Script" uid="uid://1w7xkmioux7c" path="res://Weapons/Projectile_Weapons/magic_wand/arcane_conduit.gd" id="1_2b4yr"]
+
+[node name="Node2D" type="Node2D"]
+z_index = -1
+script = ExtResource("1_2b4yr")

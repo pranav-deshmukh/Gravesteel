@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://da3i81ke2n8mc"]
+
+[ext_resource type="Script" uid="uid://cgi7myjgjuo5d" path="res://Weapons/Projectile_Weapons/Spear/spear_body.gd" id="1_jrejw"]
+[ext_resource type="Texture2D" uid="uid://be6miv8yrqkl7" path="res://Weapons/RPG_Weapons.png" id="2_frdwb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frdwb"]
+
+[node name="Spear" type="Area2D"]
+scale = Vector2(0.40000048, 0.40000048)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_jrejw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.79165924
+scale = Vector2(1.3337504, 1.3337505)
+texture = ExtResource("2_frdwb")
+region_enabled = true
+region_rect = Rect2(407, 278.43994, 66.04553, 65.83765)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_frdwb")

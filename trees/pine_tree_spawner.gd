@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @export var tree_scene: PackedScene
 @export var chunk_size: int = 512
-@export var trees_per_chunk: int = 10
+@export var trees_per_chunk: int = 1
 @export var spawn_radius_chunks: int = 2
 
 # 🌍 Define your finite world boundaries

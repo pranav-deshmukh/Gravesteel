@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctlq2vk8cog4d"]
+
+[ext_resource type="Script" uid="uid://g1lwv08acass" path="res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.gd" id="1_2hf60"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2hf60")
+damage = null
+blade_count = null
+throw_speed = null
+return_speed = null
+max_distance = null
+throw_interval = null
+level = null
