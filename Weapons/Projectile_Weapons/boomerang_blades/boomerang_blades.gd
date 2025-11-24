@@ -9,6 +9,8 @@ extends Node2D
 @export var throw_interval: float = 2.5
 @export var level: int = 1
 
+@onready var boomerang_sound = $boomerang_throw
+
 var player
 var is_on_cooldown: bool = false
 
@@ -40,6 +42,7 @@ func throw_blades():
 			direction = direction.rotated(deg_to_rad(spread_angle))
 		
 		spawn_boomerang(direction)
+		boomerang_sound.play()
 		await get_tree().create_timer(0.1).timeout  # Slight delay between blades
 	
 	# Cooldown

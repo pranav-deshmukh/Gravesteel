@@ -47,7 +47,7 @@ func _ready():
 	var meteor_shower = preload("res://Weapons/weapon-scenes/Area_Weapons/meteor_shower/meteor_shower.tscn")
 	var boomerang_blades = preload("res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.tscn")
 	var fire_aura = preload("res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.tscn")
-	weapon_manager.add_weapon(bow_arrow)
+	weapon_manager.add_weapon(boomerang_blades)
 
 func setup_blood_effect():
 	# Create canvas layer for screen-space effects

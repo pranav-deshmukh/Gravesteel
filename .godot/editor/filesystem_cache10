@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1763981078
+::res://::1763988687
 Button_Texture_Upgrade_menu.png::CompressedTexture2D::3531673096585662548::1762597194::1762597212::1::::<><><>0<>0<>c76735b4d1af28ac74bbc125f2a3989c<>res://.godot/imported/Button_Texture_Upgrade_menu.png-89b450753a430bf6fa68c62c3cf2b911.ctex::
 default_bus_layout.tres::AudioBusLayout::6564268947468103023::1760349056::0::1::::<><><>0<>0<><>::
 floating_text.gd::GDScript::5753870640701685210::1761721500::0::1::::<>Label<><>0<>0<><>::
@@ -7,7 +7,7 @@ floating_text.tscn::PackedScene::26400409636287734::1762661624::0::1::::<><><>0<
 game.gd::GDScript::8436459038756774411::1763639113::0::1::::<>Node2D<><>0<>0<><>::
 portal3_spritesheet.png::CompressedTexture2D::6972941725495572572::1763053340::1763053340::1::::<><><>0<>0<>99d2c227a6bf8bd1244c0020ebadd179<>res://.godot/imported/portal3_spritesheet.png-76586cbc4359db699bf40f25c7763b54.ctex::
 README.md::TextFile::-1::1760607959::0::1::::<><><>0<>0<><>::
-survivors_game.tscn::PackedScene::8591458836669554224::1763888980::0::1::::<><><>0<>0<><>::uid://dsgxioo8wstff::::res://game.gd<>uid://84m1gqintjon::::res://Weapons/weapon_display.gd<>uid://dsw8raqgacxsc::::res://Player/player.tscn<>uid://btk5l2psgy7pr::::res://Mob/Skull&Bones.png<>uid://cp80kk7ve4gj2::::res://pistol/assets/grasstile.png<>uid://kncjihep4knv::::res://trees/tree_spawner.tscn<>uid://dfhtv00kvuw0n::::res://Weapons/UpgradeMenu.tscn<>uid://c24qn5ms0vywl::::res://Weapons/GOLDEN GOODS.png
+survivors_game.tscn::PackedScene::8591458836669554224::1763986979::0::1::::<><><>0<>0<><>::uid://dsgxioo8wstff::::res://game.gd<>uid://84m1gqintjon::::res://Weapons/weapon_display.gd<>uid://dsw8raqgacxsc::::res://Player/player.tscn<>uid://btk5l2psgy7pr::::res://Mob/Skull&Bones.png<>uid://cp80kk7ve4gj2::::res://pistol/assets/grasstile.png<>uid://kncjihep4knv::::res://trees/tree_spawner.tscn<>uid://dfhtv00kvuw0n::::res://Weapons/UpgradeMenu.tscn<>uid://c24qn5ms0vywl::::res://Weapons/GOLDEN GOODS.png
 upgrades.gd::GDScript::4463186258819827047::1763639079::0::1::::UpgradesData<>Resource<><>0<>0<><>::
 Upgrade_menu_texture.png::CompressedTexture2D::7735416589241400529::1762596994::1762597012::1::::<><><>0<>0<>d892eaa22303a626cbb444c2dff6b067<>res://.godot/imported/Upgrade_menu_texture.png-73555157e07cbb34c1fd9ef2c8179138.ctex::
 ::res://addons/::1760349056
@@ -15,8 +15,8 @@ Upgrade_menu_texture.png::CompressedTexture2D::7735416589241400529::1762596994::
 colorpicker_presets.gd::GDScript::8382802027330247951::1760349056::0::1::::<>EditorPlugin<><>0<>1<><>::
 plugin.cfg::TextFile::-1::1760349056::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1760349056::0::1::::<><><>0<>0<><>::
-::res://characters/::1761914921
-bow.tscn::PackedScene::8143938477430475072::1761914921::0::1::::<><><>0<>0<><>::uid://b1pvtvp2sylhn::::res://pistol/assets/Bow and Arrows.png
+::res://characters/::1763988416
+bow.tscn::PackedScene::8143938477430475072::1763988416::0::1::::<><><>0<>0<><>::uid://b1pvtvp2sylhn::::res://pistol/assets/Bow and Arrows.png
 ground_shadow.png::CompressedTexture2D::4668018078467755571::1760349056::1760349138::1::::<><><>0<>0<>413dd9ce8da33ec5e59b9749c6be9182<>res://.godot/imported/ground_shadow.png-b9267d10ca04362d5b540659e4ab0dbd.ctex::
 ::res://characters/Arrow(Projectile)/::1760366169
 Arrow01(32x32).png::CompressedTexture2D::2656408065423297982::1760360830::1760366169::1::::<><><>0<>0<>995f9b78873eb22903ecba623040a4d3<>res://.godot/imported/Arrow01(32x32).png-1065e8567d1de8c72614459c953b8db3.ctex::
@@ -112,11 +112,11 @@ Key.png::CompressedTexture2D::2196159088603388541::1761998947::1761998947::1::::
 ::res://Main menu/::1761915328
 main_menu.gd::GDScript::4980221470494197289::1761641310::0::1::::<>Node2D<><>0<>0<><>::
 main_menu.tscn::PackedScene::6884014695321971056::1761915328::0::1::::<><><>0<>0<><>::uid://cc7prxecfh8r2::::res://Main menu/main_menu.gd<>uid://620d2ynm3h08::::res://pistol/assets/Start.png<>uid://bnbf358qyejuq::::res://pistol/assets/Quit.png<>uid://bxeoiws6ds8b::::res://pistol/assets/start menu screen.png
-::res://Mob/::1763981078
+::res://Mob/::1763986461
 boss1-sprite.png::CompressedTexture2D::5263505258656902456::1763981037::1763981079::1::::<><><>0<>0<>d247162a14f1a59eff0a6b6ad58b4a43<>res://.godot/imported/boss1-sprite.png-797d6c27eea865e5cc1776a69b3b66c1.ctex::
 boss1.png::CompressedTexture2D::5381366574884420855::1763296441::1763296456::1::::<><><>0<>0<>73a9079f881fe81a39c058c834920497<>res://.godot/imported/boss1.png-0681f24165d61b5218ac2b628d5c612b.ctex::
 boss_1.gd::GDScript::7794290687171055642::1763297829::0::1::::<>CharacterBody2D<><>0<>0<><>::
-boss_1.tscn::PackedScene::5297057491920916497::1763830509::0::1::::<><><>0<>0<><>::uid://djbu3gfoh4s47::::res://Mob/boss_1.gd<>uid://ciw1k6m3o7btn::::res://Mob/boss1.png
+boss_1.tscn::PackedScene::5297057491920916497::1763986461::0::1::::<><><>0<>0<><>::uid://djbu3gfoh4s47::::res://Mob/boss_1.gd<>uid://cg8xfr76md41y::::res://Mob/boss1-sprite.png
 boss_2.tscn::PackedScene::3484814407437959474::1763813597::0::1::::<><><>0<>0<><>::uid://djbu3gfoh4s47::::res://Mob/boss_1.gd<>uid://cdw2y1n1318sw::::res://Mob/zombie_walk.png
 boss_3.tscn::PackedScene::3435892466076090594::1763813199::0::1::::<><><>0<>0<><>::uid://djbu3gfoh4s47::::res://Mob/boss_1.gd<>uid://c840jefvsqqvl::::res://Mob/witch_walk.png
 mob.gd::GDScript::1001648200538875950::1763976942::0::1::::<>CharacterBody2D<><>0<>0<><>::
@@ -150,10 +150,10 @@ impact.tscn::PackedScene::706737085132625066::1760349056::0::1::::<><><>0<>0<><>
 muzzle_flash.gd::GDScript::4479662457787026327::1760349056::0::1::::<>Node2D<><>0<>0<><>::
 muzzle_flash.png::CompressedTexture2D::3592944556550980239::1760349056::1760349138::1::::<><><>0<>0<>d995f352a7d07e7705e830566b0eb185<>res://.godot/imported/muzzle_flash.png-752b19c1a1a60c24eac6f205d487f2ea.ctex::
 muzzle_flash.tscn::PackedScene::392939055719894999::1760349056::0::1::::<><><>0<>0<><>::uid://b428neo6pc13x::::res://pistol/muzzle_flash/muzzle_flash.gd<>uid://brgpjilf7s2ul::::res://pistol/muzzle_flash/muzzle_flash.png
-::res://Player/::1763977740
+::res://Player/::1763986773
 main_character.tscn::PackedScene::3036063547107907367::1761915204::0::1::::<><><>0<>0<><>::uid://cphcr81upg72i::::res://Weapons/weapon-scenes/arrow/gun.tscn
-player.gd::GDScript::3050301764329180417::1763977740::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::8470111591400466706::1763919019::0::1::::<><><>0<>0<><>::uid://bjpua3hfywlnl::::res://Player/player.gd<>uid://1plbexydl5t5::::res://characters/Characters(100x100)/Soldier/Soldier with shadows/maincharacter.tscn<>uid://cphcr81upg72i::::res://Weapons/weapon-scenes/arrow/gun.tscn<>uid://ctlq2vk8cog4d::::res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.tscn<>uid://wehyo2yaxi8h::::res://Weapons/weapon_manager.gd<>uid://i1ms0hal5uh2::::res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_weapon.tscn<>uid://b4tf523itdm0g::::res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.tscn<>uid://cgdcx6tesx6iu::::res://Weapons/weapon-scenes/orbs/orbit_weapon.tscn<>uid://bmksu8ycw5vfp::::res://Weapons/Projectile_Weapons/Dagger/ricochet_dagger.tscn<>uid://blqnl6txu45ya::::res://Weapons/weapon-scenes/Orbit_Weapon/satellite_drones.tscn<>uid://bunksw265pbns::::res://Weapons/Projectile_Weapons/magic_wand/arcane_conduit.tscn
+player.gd::GDScript::3050301764329180417::1763986773::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::8470111591400466706::1763986773::0::1::::<><><>0<>0<><>::uid://bjpua3hfywlnl::::res://Player/player.gd<>uid://1plbexydl5t5::::res://characters/Characters(100x100)/Soldier/Soldier with shadows/maincharacter.tscn<>uid://cphcr81upg72i::::res://Weapons/weapon-scenes/arrow/gun.tscn<>uid://ctlq2vk8cog4d::::res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.tscn<>uid://wehyo2yaxi8h::::res://Weapons/weapon_manager.gd<>uid://i1ms0hal5uh2::::res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_weapon.tscn<>uid://b4tf523itdm0g::::res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.tscn<>uid://cgdcx6tesx6iu::::res://Weapons/weapon-scenes/orbs/orbit_weapon.tscn<>uid://bmksu8ycw5vfp::::res://Weapons/Projectile_Weapons/Dagger/ricochet_dagger.tscn<>uid://blqnl6txu45ya::::res://Weapons/weapon-scenes/Orbit_Weapon/satellite_drones.tscn<>uid://bunksw265pbns::::res://Weapons/Projectile_Weapons/magic_wand/arcane_conduit.tscn
 ::res://Portal/::1763096526
 portal.gd::GDScript::1026539837991185908::1763096526::0::1::::<>Area2D<><>0<>0<><>::
 portal.tscn::PackedScene::5213711967345551301::1763096526::0::1::::<><><>0<>0<><>::uid://ovi7xderl1oi::::res://Portal/portal.gd<>uid://c6l0ljfxdkc6w::::res://portal3_spritesheet.png
@@ -181,8 +181,9 @@ weapon_display.gd::GDScript::2376874169716111989::1763701898::0::1::::<>ColorRec
 weapon_manager.gd::GDScript::1552880727184020097::1763815387::0::1::::<>Node<><>0<>0<><>::
 weapon_manager.tscn::PackedScene::7899399445575439292::1761828553::0::1::::<><><>0<>0<><>::
 ::res://Weapons/Projectile_Weapons/::1763916733
-::res://Weapons/Projectile_Weapons/boomerang_blades/::1763975820
+::res://Weapons/Projectile_Weapons/boomerang_blades/::1763988686
 boomerang.tscn::PackedScene::8342928967415888031::1763958190::0::1::::<><><>0<>0<><>::uid://celhihecwtpqf::::res://Weapons/Projectile_Weapons/boomerang_blades/Suriken.png
+boomerang.wav::AudioStreamWAV::8728604578249480899::1763988676::1763988687::1::::<><><>0<>0<>004c39aa28731d29a7720748b5639f56<>res://.godot/imported/boomerang.wav-6ddb35cb843df38d94da0ebdba32bccc.sample::
 boomerang_blades.gd::GDScript::475515200929998950::1763958414::0::1::::BoomerangBlades<>Node2D<><>0<>0<><>::
 boomerang_blades.tscn::PackedScene::6130158360064167589::1763975820::0::1::::<><><>0<>0<><>::uid://g1lwv08acass::::res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.gd
 boomerang_projectile.gd::GDScript::4261074671637525193::1763919327::0::1::::<>Area2D<><>0<>0<><>::
@@ -200,7 +201,7 @@ spear.tscn::PackedScene::7217610676607490358::1763891473::0::1::::<><><>0<>0<><>
 spear_body.gd::GDScript::5212455099291346279::1763890482::0::1::::<>Area2D<><>0<>0<><>::
 spear_thrower.gd::GDScript::4242673558689051870::1763891276::0::1::::SpearThrower<>Area2D<><>0<>0<><>::
 spear_thrower.tscn::PackedScene::8046260844268568019::1763890769::0::1::::<><><>0<>0<><>::uid://b1pghi8jf85bm::::res://Weapons/Projectile_Weapons/Spear/spear_thrower.gd
-::res://Weapons/weapon-scenes/::1763894459
+::res://Weapons/weapon-scenes/::1763988030
 ::res://Weapons/weapon-scenes/Area_Weapons/::1763915743
 ::res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/::1763916520
 Lightning_animation.png::CompressedTexture2D::3370585057879525544::1762678814::1762678829::1::::<><><>0<>0<>36dcd920de778fdaf485c5de75a71a57<>res://.godot/imported/Lightning_animation.png-721a043aa2049536ee7d6b1ac85ca047.ctex::
@@ -210,14 +211,15 @@ lightning_weapon.tscn::PackedScene::615946642826585657::1763916520::0::1::::<><>
 ::res://Weapons/weapon-scenes/Area_Weapons/meteor_shower/::1763915986
 meteor_shower.gd::GDScript::376853296612316066::1763915806::0::1::::MeteorShower<>Node2D<><>0<>0<><>::
 meteor_shower.tscn::PackedScene::1358124800780592090::1763915986::0::1::::<><><>0<>0<><>::uid://fmsyo4hehvfm::::res://Weapons/weapon-scenes/Area_Weapons/meteor_shower/meteor_shower.gd
-::res://Weapons/weapon-scenes/arrow/::1763890907
+::res://Weapons/weapon-scenes/arrow/::1763988510
+arrow_sound.mp3::AudioStreamMP3::1059196828028406589::1763988023::1763988041::1::::<><><>0<>0<>bac08b4b69e87eefa465ba7b846ee27c<>res://.godot/imported/arrow_sound.mp3-bf64313560ff4293c6650eb16da9d68a.mp3str::
 bullet_2d.gd::GDScript::5756550784046680375::1761815257::0::1::::<>Area2D<><>0<>0<><>::
 bullet_2d.tscn::PackedScene::3645470024051463521::1763890907::0::1::::<><><>0<>0<><>::uid://coarsyh1eafkp::::res://Weapons/weapon-scenes/arrow/bullet_2d.gd<>uid://bd31wgs7satj7::::res://characters/Arrow(Projectile)/Arrow01(32x32).png
-gun.gd::GDScript::2880344380722337264::1763699251::0::1::::Gun<>Area2D<><>0<>0<><>::
-gun.tscn::PackedScene::5840278233081519294::1763890469::0::1::::<><><>0<>0<><>::uid://bhbi365xsk225::::res://Weapons/weapon-scenes/arrow/gun.gd<>uid://doa8qhjissjx5::::res://characters/bow.tscn
-::res://Weapons/weapon-scenes/Aura_Weapon/::1763698321
-aura_weapon.gd::GDScript::3640341230402437706::1763098802::0::1::::FireAura<>Area2D<><>0<>0<><>::
-aura_weapon.tscn::PackedScene::4461478947078139088::1763698321::0::1::::<><><>0<>0<><>::uid://br4n5g08jirkc::::res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.gd<>uid://cusjye5qbxhhu::::res://Weapons/weapon-scenes/Aura_Weapon/FireCast_96x96.png
+gun.gd::GDScript::2880344380722337264::1763988408::0::1::::Gun<>Area2D<><>0<>0<><>::
+gun.tscn::PackedScene::5840278233081519294::1763988510::0::1::::<><><>0<>0<><>::uid://bhbi365xsk225::::res://Weapons/weapon-scenes/arrow/gun.gd<>uid://doa8qhjissjx5::::res://characters/bow.tscn<>uid://pdc21pv6a6hd::::res://Weapons/weapon-scenes/arrow/arrow_sound.mp3
+::res://Weapons/weapon-scenes/Aura_Weapon/::1763986798
+aura_weapon.gd::GDScript::3640341230402437706::1763986798::0::1::::FireAura<>Area2D<><>0<>0<><>::
+aura_weapon.tscn::PackedScene::4461478947078139088::1763986798::0::1::::<><><>0<>0<><>::uid://br4n5g08jirkc::::res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.gd<>uid://cusjye5qbxhhu::::res://Weapons/weapon-scenes/Aura_Weapon/FireCast_96x96.png
 FireCast_96x96.png::CompressedTexture2D::6214366608875289958::1574216529::1762942554::1::::<><><>0<>0<>a03c521ce17dd42c8a9b12bc599dec49<>res://.godot/imported/FireCast_96x96.png-65090d17ee8e3acba191ce87d89bce4f.ctex::
 ::res://Weapons/weapon-scenes/Orbit_Weapon/::1763894589
 satellite_drones.gd::GDScript::4304883650138653079::1763894542::0::1::::SatelliteDrones<>Node2D<><>0<>0<><>::

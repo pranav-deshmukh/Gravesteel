@@ -8,6 +8,8 @@ extends Area2D
 @export var bullet_speed: float = 300.0
 @export var level: int = 1
 
+@onready var arrow_sound = $Arrow_sound
+
 var attack_timer: Timer
 var player
 
@@ -42,6 +44,7 @@ func attack():
 func shoot(bullet_index: int = 0):
 	const BULLET = preload("res://Weapons/weapon-scenes/arrow/bullet_2d.tscn")
 	var new_bullet = BULLET.instantiate()
+	arrow_sound.play()
 	new_bullet.global_transform = %ShootingPoint.global_transform
 	
 	# Apply bullet properties
