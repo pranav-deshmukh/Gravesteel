@@ -3,8 +3,8 @@ extends Node2D
 
 @export var damage: float = 18.0
 @export var blade_count: int = 1
-@export var throw_speed: float = 400.0
-@export var return_speed: float = 500.0
+@export var throw_speed: float = 700.0
+@export var return_speed: float = 700.0
 @export var max_distance: float = 350.0
 @export var throw_interval: float = 2.5
 @export var level: int = 1
@@ -113,7 +113,6 @@ func create_boomerang_blade() -> Area2D:
 	
 	return blade
 
-# Remove the create_blade_script() function entirely - we don't need it anymore
 
 func create_blade_visual() -> Node2D:
 	var visual = Node2D.new()
@@ -127,7 +126,7 @@ func create_blade_visual() -> Node2D:
 	if animated_sprite.has_method("play"):
 		animated_sprite.play()
 	
-	animated_sprite.scale = Vector2(0.5, 0.5)  # Adjust size
+	#animated_sprite.scale = Vector2(0.5, 0.5)  # Adjust size
 	
 	visual.add_child(animated_sprite)
 	
@@ -275,13 +274,13 @@ func upgrade():
 	match level:
 		2:
 			damage *= 1.4
-			return_speed = 550.0
+			return_speed = 800.0
 		3:
 			blade_count = 2
 			max_distance = 400.0
 		4:
 			damage *= 1.3
-			throw_speed = 450.0
+			throw_speed = 870.0
 		5:
 			max_distance = 480.0
 			throw_interval = 2.0
@@ -289,7 +288,7 @@ func upgrade():
 			blade_count = 3
 			damage *= 1.5
 		7:
-			return_speed = 650.0
+			return_speed = 870.0
 			max_distance = 550.0
 		8:
 			blade_count = 4

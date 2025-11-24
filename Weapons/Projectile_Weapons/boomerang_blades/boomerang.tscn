@@ -68,6 +68,6 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 texture_filter = 1
-scale = Vector2(2.6799998, 2.6799998)
+scale = Vector2(1.7748381, 1.7748381)
 sprite_frames = SubResource("SpriteFrames_p32hs")
 animation = &"spin"

@@ -24,9 +24,17 @@ var kills_for_next_chest: int = 5
 @onready var chest_scene = preload("res://Chest/chest.tscn")
 var upgrades = UpgradesData.upgrades
 
+# Blood splatter effect variables
+var blood_canvas: CanvasLayer
+var blood_particles: CPUParticles2D
+var is_taking_damage: bool = false
+
 
 func _ready():
-	add_to_group("player")  # ← Important for weapons to find player!
+	add_to_group("player")
+	
+	# Setup blood splatter effect
+	setup_blood_effect()
 	
 	# Start with orbit weapon
 	var orbit_weapon = preload("res://Weapons/weapon-scenes/orbs/orbit_weapon.tscn")
@@ -38,8 +46,42 @@ func _ready():
 	var magic_wand = preload("res://Weapons/Projectile_Weapons/magic_wand/arcane_conduit.tscn")
 	var meteor_shower = preload("res://Weapons/weapon-scenes/Area_Weapons/meteor_shower/meteor_shower.tscn")
 	var boomerang_blades = preload("res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_blades.tscn")
+	var fire_aura = preload("res://Weapons/weapon-scenes/Aura_Weapon/aura_weapon.tscn")
+	weapon_manager.add_weapon(bow_arrow)
 
-	weapon_manager.add_weapon(boomerang_blades)
+func setup_blood_effect():
+	# Create canvas layer for screen-space effects
+	blood_canvas = CanvasLayer.new()
+	blood_canvas.layer = 100  # Above everything else
+	add_child(blood_canvas)
+	
+	# Create blood particles for splatter effect
+	blood_particles = CPUParticles2D.new()
+	blood_particles.emitting = false
+	blood_particles.one_shot = false  # Continuous emission
+	blood_particles.explosiveness = 0.7
+	blood_particles.amount = 100
+	blood_particles.lifetime = 0.4
+	blood_particles.speed_scale = 1.5
+	
+	# Particle properties - smaller radius
+	blood_particles.direction = Vector2(0, 1)
+	blood_particles.spread = 180
+	blood_particles.initial_velocity_min = 100
+	blood_particles.initial_velocity_max = 200
+	blood_particles.gravity = Vector2(0, 300)
+	blood_particles.scale_amount_min = 2.0
+	blood_particles.scale_amount_max = 5.0
+	blood_particles.z_index=-10
+	
+	# Color and appearance
+	var gradient = Gradient.new()
+	gradient.add_point(0.0, Color(0.9, 0.1, 0.1, 1))    # Bright red
+	gradient.add_point(0.5, Color(0.7, 0, 0, 0.8))      # Dark red
+	gradient.add_point(1.0, Color(0.4, 0.0, 0.0, 0.659))        # Fade out
+	blood_particles.color_ramp = gradient
+	
+	blood_canvas.add_child(blood_particles)
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -64,9 +106,32 @@ func _physics_process(delta):
 	if overlapping_mobs:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		shake_camera(30)
+		
+		# Trigger blood splatter effect - keep spraying while taking damage
+		if not is_taking_damage:
+			is_taking_damage = true
+			trigger_blood_effect()
+		
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
+	else:
+		# Stop blood spray when no longer taking damage
+		if is_taking_damage:
+			is_taking_damage = false
+			stop_blood_effect()
+
+func trigger_blood_effect():
+	# Position particles at screen center
+	var viewport_size = get_viewport_rect().size
+	blood_particles.position = viewport_size / 2
+	
+	# Start continuous blood splatter
+	blood_particles.emitting = true
+
+func stop_blood_effect():
+	# Stop emitting particles
+	blood_particles.emitting = false
 
 func add_coins(value):
 	coins += value
@@ -86,18 +151,15 @@ func add_orcs_killed(value):
 		kills_for_next_chest += 20
 
 func spawn_chest():
-	#print("=== SPAWNING CHEST at ", orcs_killed, " kills ===")
 	if chest_scene:
 		var chest = chest_scene.instantiate()
 		get_parent().add_child(chest)
 		var offset = Vector2(randf_range(-200,200), randf_range(-200,200))
 		chest.global_position = global_position + offset
-		#print("Chest spawned at: ", chest.global_position)
 	else:
 		push_error("Chest scene not found! Check the path.")
 
 func trigger_level_up():
-	#print("=== LEVEL UP ===")
 	coins = 0
 	coin_label.text = "0 coins"
 	coin_collected_bar.value = 0
