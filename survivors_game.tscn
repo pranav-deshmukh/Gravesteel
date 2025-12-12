@@ -1,13 +1,38 @@
-[gd_scene load_steps=14 format=3 uid="uid://dun1cpardk2xw"]
+[gd_scene load_steps=24 format=3 uid="uid://dun1cpardk2xw"]
 
 [ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
 [ext_resource type="Script" uid="uid://84m1gqintjon" path="res://Weapons/weapon_display.gd" id="2_3uxnc"]
 [ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://Player/player.tscn" id="2_a7q7f"]
+[ext_resource type="Texture2D" uid="uid://dm1518ggqt4ph" path="res://map-sprites/tile000.png" id="2_hag8e"]
 [ext_resource type="Texture2D" uid="uid://btk5l2psgy7pr" path="res://Mob/Skull&Bones.png" id="2_pk6fm"]
+[ext_resource type="Texture2D" uid="uid://drpm53o0int4" path="res://map-sprites/tile001.png" id="3_c7ljv"]
 [ext_resource type="Texture2D" uid="uid://cp80kk7ve4gj2" path="res://pistol/assets/grasstile.png" id="3_qqaft"]
+[ext_resource type="Texture2D" uid="uid://d3rsgitsbv3mu" path="res://map-sprites/tile025.png" id="4_f4jgt"]
 [ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://trees/tree_spawner.tscn" id="4_qqaft"]
+[ext_resource type="Texture2D" uid="uid://cnqwobp35gbrc" path="res://map-sprites/tile028.png" id="5_bx10g"]
+[ext_resource type="Script" uid="uid://5d3qeowuv4mf" path="res://tilemap_generator.gd" id="6_1rfca"]
 [ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://Weapons/UpgradeMenu.tscn" id="6_edxvn"]
 [ext_resource type="Texture2D" uid="uid://c24qn5ms0vywl" path="res://Weapons/GOLDEN GOODS.png" id="6_pk6fm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nnvgw"]
+texture = ExtResource("2_hag8e")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecgo8"]
+texture = ExtResource("3_c7ljv")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wo7d"]
+texture = ExtResource("4_f4jgt")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll6xr"]
+texture = ExtResource("5_bx10g")
+
+[sub_resource type="TileSet" id="TileSet_3rqal"]
+sources/0 = SubResource("TileSetAtlasSource_nnvgw")
+sources/1 = SubResource("TileSetAtlasSource_ecgo8")
+sources/2 = SubResource("TileSetAtlasSource_1wo7d")
+sources/3 = SubResource("TileSetAtlasSource_ll6xr")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk6fm"]
 bg_color = Color(0.535721, 0.36571983, 0.29870552, 0.6117647)
@@ -42,6 +67,15 @@ region = Rect2(10.260086, -0.54997635, 85.7997, 78.650024)
 y_sort_enabled = true
 scale = Vector2(1.0079106, 1)
 script = ExtResource("1_qclsr")
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color(1, 1, 1, 0.5647059)
+z_index = -10
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_3rqal")
+format = 2
+script = ExtResource("6_1rfca")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -275,6 +309,7 @@ vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -32
+visible = false
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
 texture_filter = 1
@@ -292,6 +327,7 @@ stretch_mode = 1
 
 [node name="TreeSpawner" parent="." instance=ExtResource("4_qqaft")]
 position = Vector2(-4, -2)
+grass_assets = Array[PackedScene]([null])
 spawn_radius_chunks = 5
 
 [node name="gemcollected" type="CanvasLayer" parent="."]

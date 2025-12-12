@@ -1,0 +1,358 @@
+[gd_scene load_steps=14 format=3 uid="uid://dun1cpardk2xw"]
+
+[ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
+[ext_resource type="Script" uid="uid://84m1gqintjon" path="res://Weapons/weapon_display.gd" id="2_3uxnc"]
+[ext_resource type="PackedScene" uid="uid://dsw8raqgacxsc" path="res://Player/player.tscn" id="2_a7q7f"]
+[ext_resource type="Texture2D" uid="uid://btk5l2psgy7pr" path="res://Mob/Skull&Bones.png" id="2_pk6fm"]
+[ext_resource type="PackedScene" uid="uid://kncjihep4knv" path="res://trees/tree_spawner.tscn" id="4_qqaft"]
+[ext_resource type="Script" uid="uid://dwyq68hlwxi01" path="res://terrain/map_generator.gd" id="5_getvi"]
+[ext_resource type="PackedScene" uid="uid://dfhtv00kvuw0n" path="res://Weapons/UpgradeMenu.tscn" id="6_edxvn"]
+[ext_resource type="Texture2D" uid="uid://c24qn5ms0vywl" path="res://Weapons/GOLDEN GOODS.png" id="6_pk6fm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk6fm"]
+bg_color = Color(0.535721, 0.36571983, 0.29870552, 0.6117647)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.34901962, 0.36078432, 0.36078432, 0.5529412)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getvi"]
+atlas = ExtResource("6_pk6fm")
+region = Rect2(48.99595, 55.39116, 9.112839, 13.170944)
+
+[sub_resource type="Curve2D" id="Curve2D_cp6e5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1055, -697, 0, 0, 0, 0, 1057, -697, 0, 0, 0, 0, 1057, 671, 0, 0, 0, 0, -1055, 663, 0, 0, 0, 0, -1055, -689)
+}
+point_count = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edxvn"]
+bg_color = Color(0.16741043, 0.40969622, 0.6139475, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uxnc"]
+atlas = ExtResource("2_pk6fm")
+region = Rect2(10.260086, -0.54997635, 85.7997, 78.650024)
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+scale = Vector2(1.0079106, 1)
+script = ExtResource("1_qclsr")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+offset_left = 52.0
+offset_top = 120.0
+offset_right = 67.300545
+offset_bottom = 155.5
+scale = Vector2(7.320002, 2)
+color = Color(0.8980392, 0.6784314, 0.62352943, 0)
+script = ExtResource("2_3uxnc")
+
+[node name="WeaponSlot1" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 0.7692305
+offset_top = 1.5
+offset_right = 0.7692305
+offset_bottom = 1.5
+scale = Vector2(0.060119435, 0.21724744)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 29.88224
+offset_top = 25.314367
+offset_right = 69.88225
+offset_bottom = 65.31437
+scale = Vector2(1.0879856, 1.2093229)
+
+[node name="WeaponSlot2" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 7.513659
+offset_top = 2.0000002
+offset_right = 107.51366
+offset_bottom = 102.0
+scale = Vector2(0.06011952, 0.21724775)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.577076
+offset_top = -21.069292
+offset_right = 11.422924
+offset_bottom = 18.930702
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.142566, 1.142566)
+
+[node name="WeaponSlot3" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 15.300543
+offset_top = 2.0
+offset_right = 115.300545
+offset_bottom = 102.0
+scale = Vector2(0.060119353, 0.21724716)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.698288
+offset_top = 50.628727
+offset_right = 100.69829
+offset_bottom = 90.62872
+scale = Vector2(0.21451272, -0.019275274)
+
+[node name="WeaponSlot4" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 1.36612
+offset_top = 26.5
+offset_right = 101.36612
+offset_bottom = 126.5
+scale = Vector2(0.060119353, 0.21724716)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.999996
+offset_top = -20.0
+offset_right = 19.999996
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9997443, 0.9997443)
+
+[node name="WeaponSlot5" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 7.5136595
+offset_top = 26.5
+offset_right = 107.51366
+offset_bottom = 126.5
+scale = Vector2(0.06265649, 0.22935097)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot5"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9997465, 0.9997465)
+
+[node name="WeaponSlot6" type="Panel" parent="HUD/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 15.437155
+offset_top = 26.0
+offset_right = 115.43716
+offset_bottom = 126.0
+scale = Vector2(0.06558383, 0.23699358)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pk6fm")
+
+[node name="Icon" type="TextureRect" parent="HUD/ColorRect/WeaponSlot6"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9997465, 0.9997465)
+
+[node name="CoinsCollected" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CoinsCollected"]
+texture_filter = 1
+offset_top = 39.0
+offset_right = 349.0
+offset_bottom = 121.0
+color = Color(0.7176471, 0.6392157, 0.4392157, 0)
+
+[node name="TextureRect2" type="TextureRect" parent="CoinsCollected/ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 43.0
+offset_top = 15.0
+offset_right = 52.0
+offset_bottom = 64.0
+scale = Vector2(4.768706, 1.0438031)
+texture = SubResource("AtlasTexture_getvi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoinsCollected/ColorRect"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 75.0
+
+[node name="Label" type="Label" parent="CoinsCollected/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+max_lines_visible = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("2_a7q7f")]
+platform_floor_layers = 4294967040
+
+[node name="Path2D" type="Path2D" parent="Player"]
+curve = SubResource("Curve2D_cp6e5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-1055, -697)
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.439216)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -107.0
+offset_right = 358.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 124
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapGenerator" type="CanvasLayer" parent="."]
+layer = -32
+script = ExtResource("5_getvi")
+
+[node name="ColorRect" type="TextureRect" parent="MapGenerator"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+
+[node name="TreeSpawner" parent="." instance=ExtResource("4_qqaft")]
+position = Vector2(-4, -2)
+spawn_radius_chunks = 5
+
+[node name="gemcollected" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="gemcollected"]
+z_index = 100
+texture_filter = 1
+offset_top = -3.0000002
+offset_right = 4.0
+offset_bottom = 24.0
+scale = Vector2(477.57632, 1.5513769)
+theme_override_styles/fill = SubResource("StyleBoxFlat_edxvn")
+show_percentage = false
+
+[node name="Orcs_Killed" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Orcs_Killed"]
+offset_left = 272.0
+offset_top = 42.0
+offset_right = 312.0
+offset_bottom = 82.0
+scale = Vector2(6.3600025, 2.0456114)
+color = Color(0.7647059, 0.64705884, 0.47843137, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Orcs_Killed/ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -4.402512
+offset_top = 4.8885136
+offset_right = 80.59749
+offset_bottom = 82.88851
+scale = Vector2(0.10062923, 0.35283402)
+texture = SubResource("AtlasTexture_3uxnc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Orcs_Killed/ColorRect"]
+layout_mode = 0
+offset_left = 3.6163511
+offset_top = 5.8662176
+offset_right = 43.616352
+offset_bottom = 54.86622
+scale = Vector2(0.1823901, 0.47169834)
+
+[node name="Label" type="Label" parent="Orcs_Killed/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+
+[node name="UpgradeMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="UpgradeMenu" parent="UpgradeMenu" instance=ExtResource("6_edxvn")]
+z_index = 23
+
+[node name="WaveLabel" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="WaveLabel"]
+offset_left = 648.0
+offset_top = 54.0
+offset_right = 688.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

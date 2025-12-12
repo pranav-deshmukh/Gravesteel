@@ -6,6 +6,8 @@ extends Node2D
 @onready var upgrade_data = preload("res://upgrades.gd").new()
 @onready var wave_label = $WaveLabel/Label
 @onready var portal = preload("res://Portal/portal.tscn")
+@onready var tilemap = $TileMap
+
 
 var current_portal = null
 
@@ -19,7 +21,7 @@ var max_levels: int = 3
 
 # Wave system
 var current_wave: int = 0
-var waves_per_level: int = 3
+var waves_per_level: int = 1
 var wave_duration: float = 30.0
 var wave_timer: float = 0.0
 var wave_active: bool = false
@@ -31,7 +33,7 @@ var enemy_spawn_weights = {
 		"skull": 25,
 		"boss1": 3,
 		"boss2": 1,
-		"boss3": 1
+		"boss3": 20
 	},
 	2: {  # Level 2
 		"basic": 50,
@@ -93,6 +95,9 @@ func start_level(level_num: int):
 	print("=== STARTING LEVEL ", level_num, " ===")
 	current_level = level_num
 	current_wave = 0
+	
+	tilemap.generate_terrain(current_level, world_size)
+
 	
 	var config = level_configs[current_level]
 	spawn_timer.wait_time = 1.0 / config.spawn_rate

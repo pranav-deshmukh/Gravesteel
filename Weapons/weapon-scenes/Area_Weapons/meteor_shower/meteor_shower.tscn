@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://fmsyo4hehvfm" path="res://Weapons/weapon-scenes/Area_Weapons/meteor_shower/meteor_shower.gd" id="1_22sy0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Meteor Shower" type="Node2D"]
 script = ExtResource("1_22sy0")

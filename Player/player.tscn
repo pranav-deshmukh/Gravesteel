@@ -58,4 +58,4 @@ show_percentage = false
 
 [node name="WeaponManager" type="Node" parent="."]
 script = ExtResource("4_hqtel")
-available_weapons = Array[PackedScene]([ExtResource("4_apopc"), ExtResource("10_x3vf3"), ExtResource("8_od3ui"), ExtResource("5_k53q1"), ExtResource("6_fhl08"), ExtResource("3_bt0kc"), ExtResource("7_vtle1"), ExtResource("9_00tjw")])
+available_weapons = Array[PackedScene]([ExtResource("10_x3vf3"), ExtResource("4_apopc"), ExtResource("9_00tjw"), ExtResource("8_od3ui"), ExtResource("5_k53q1"), ExtResource("6_fhl08"), ExtResource("3_bt0kc"), ExtResource("7_vtle1")])

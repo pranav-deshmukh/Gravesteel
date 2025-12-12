@@ -41,3 +41,6 @@ func die():
 	player.add_orcs_killed(1)
 	died.emit()
 	queue_free()
+
+func fire_projectile():
+	print("projectile fired by witch")

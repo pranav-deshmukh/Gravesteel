@@ -1,8 +1,10 @@
-AudioStreamPlayer2D      - Matches the "sound" keyword.
-AnimatedSprite2D
+StaticBody2D
 CollisionShape2D
 Sprite2D
+AnimatedSprite2D
 Area2D
+TileMap
+AudioStreamPlayer2D      - Matches the "sound" keyword.
 Marker2D
 Timer
 RigidBody2D
@@ -11,4 +13,3 @@ TextureRect
 Panel
 HBoxContainer
 MarginContainer
-CanvasLayer

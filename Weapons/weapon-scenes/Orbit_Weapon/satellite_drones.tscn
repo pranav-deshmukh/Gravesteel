@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://b2lk2mksldtf0" path="res://Weapons/weapon-scenes/Orbit_Weapon/satellite_drones.gd" id="1_y8ais"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Satellite Drones" type="Node2D"]
 script = ExtResource("1_y8ais")

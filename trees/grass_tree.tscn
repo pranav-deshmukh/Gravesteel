@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3h6sxmrpwglu"]
+
+[ext_resource type="Texture2D" uid="uid://ch67stjk57j1n" path="res://map-sprites/tile311.png" id="1_55fu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tyf2v"]
+
+[node name="GrassTree" type="StaticBody2D"]
+scale = Vector2(1.8000002, 1.8000002)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_55fu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.571622, 0.571622)
+shape = SubResource("CircleShape2D_tyf2v")

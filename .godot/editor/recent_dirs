@@ -1,4 +1,8 @@
+res://pistol/assets
 res://Mob
+res://
+res://terrain
+res://map-sprites
 res://Weapons/Projectile_Weapons/boomerang_blades
 res://Weapons/weapon-scenes/Area_Weapons/meteor_shower
 res://Weapons/Projectile_Weapons/magic_wand
@@ -7,7 +11,6 @@ res://Weapons/Projectile_Weapons/Dagger
 res://Weapons/Projectile_Weapons/Spear
 res://Weapons
 res://Portal
-res://
 res://Weapons/weapon-scenes/Aura_Weapon
 res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike
 res://Chest

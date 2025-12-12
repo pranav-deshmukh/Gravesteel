@@ -26,15 +26,18 @@ func _process(_delta):
 
 func throw_blades():
 	var target = find_nearest_enemy()
-	if not target:
+	if not target or not is_instance_valid(target):  # CHECK IF VALID
 		await get_tree().create_timer(0.5).timeout
 		return
 	
 	is_on_cooldown = true
 	
+	# Store target position since target might be freed during loop
+	var target_pos = target.global_position
+	
 	# Throw multiple blades with spread
 	for i in range(blade_count):
-		var direction = (target.global_position - global_position).normalized()
+		var direction = (target_pos - global_position).normalized()  # USE STORED POSITION
 		
 		# Add spread angle
 		if blade_count > 1:
@@ -43,7 +46,7 @@ func throw_blades():
 		
 		spawn_boomerang(direction)
 		boomerang_sound.play()
-		await get_tree().create_timer(0.1).timeout  # Slight delay between blades
+		await get_tree().create_timer(0.1).timeout
 	
 	# Cooldown
 	await get_tree().create_timer(throw_interval).timeout
@@ -58,7 +61,7 @@ func find_nearest_enemy() -> Node2D:
 	var min_distance = INF
 	
 	for enemy in enemies:
-		if is_instance_valid(enemy):
+		if is_instance_valid(enemy) and enemy != null:  # ADDED NULL CHECK
 			var distance = global_position.distance_to(enemy.global_position)
 			if distance < min_distance:
 				min_distance = distance
@@ -82,8 +85,9 @@ func spawn_boomerang(direction: Vector2):
 	boomerang.weapon = self
 	
 	# Camera shake on throw
-	if player and player.has_method("shake_camera"):
+	if player and is_instance_valid(player) and player.has_method("shake_camera"):
 		player.shake_camera(4)
+
 func create_boomerang_blade() -> Area2D:
 	var blade = Area2D.new()
 	blade.name = "Boomerang"
@@ -91,7 +95,7 @@ func create_boomerang_blade() -> Area2D:
 	blade.collision_mask = 2  # Enemies layer
 	
 	# Load the script
-	var script = load("res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_projectile.gd")  # UPDATE THIS PATH
+	var script = load("res://Weapons/Projectile_Weapons/boomerang_blades/boomerang_projectile.gd")
 	blade.set_script(script)
 	
 	# Curved blade visual
@@ -116,7 +120,6 @@ func create_boomerang_blade() -> Area2D:
 	
 	return blade
 
-
 func create_blade_visual() -> Node2D:
 	var visual = Node2D.new()
 	visual.name = "Visual"
@@ -129,8 +132,6 @@ func create_blade_visual() -> Node2D:
 	if animated_sprite.has_method("play"):
 		animated_sprite.play()
 	
-	#animated_sprite.scale = Vector2(0.5, 0.5)  # Adjust size
-	
 	visual.add_child(animated_sprite)
 	
 	return visual
@@ -139,20 +140,19 @@ func create_trail_effect() -> Line2D:
 	var trail = Line2D.new()
 	trail.name = "Trail"
 	trail.width = 3
-	trail.default_color = Color(0.6, 0.6, 0.8, 0.5)  # Gray-blue trail
+	trail.default_color = Color(0.6, 0.6, 0.8, 0.5)
 	trail.z_index = -1
 	
 	# Gradient for fading trail
 	var gradient = Gradient.new()
-	gradient.add_point(0.0, Color(0.8, 0.8, 1, 0))    # Transparent at back
-	gradient.add_point(1.0, Color(0.6, 0.6, 0.8, 0.7))  # Visible at front
+	gradient.add_point(0.0, Color(0.8, 0.8, 1, 0))
+	gradient.add_point(1.0, Color(0.6, 0.6, 0.8, 0.7))
 	trail.gradient = gradient
 	
 	return trail
 
-
 func _on_blade_hit(blade: Area2D, body: Node2D):
-	if not body.is_in_group("enemies"):
+	if not is_instance_valid(body) or not body.is_in_group("enemies"):  # CHECK VALIDITY
 		return
 	
 	# Check if hit_enemies exists and is valid
@@ -172,10 +172,14 @@ func _on_blade_hit(blade: Area2D, body: Node2D):
 	
 	blade.hit_enemies.append(body)
 	
-	create_slash_effect(body.global_position, blade.rotation)
+	# Store position before potential freeing
+	var body_pos = body.global_position
+	var blade_rot = blade.rotation
+	
+	create_slash_effect(body_pos, blade_rot)
 	flash_enemy(body)
 	
-	if player and player.has_method("shake_camera"):
+	if player and is_instance_valid(player) and player.has_method("shake_camera"):
 		player.shake_camera(3)
 		
 func create_slash_effect(pos: Vector2, angle: float):
@@ -250,10 +254,13 @@ func create_catch_effect(pos: Vector2):
 	tween.parallel().tween_property(ring, "color:a", 0.0, 0.3)
 	tween.tween_callback(catch_fx.queue_free)
 	
-	if player and player.has_method("shake_camera"):
+	if player and is_instance_valid(player) and player.has_method("shake_camera"):
 		player.shake_camera(2)
 
 func flash_enemy(enemy: Node2D):
+	if not is_instance_valid(enemy):  # CHECK VALIDITY
+		return
+		
 	var sprite = enemy.get_node_or_null("Sprite2D")
 	if not sprite:
 		return
@@ -262,7 +269,7 @@ func flash_enemy(enemy: Node2D):
 	sprite.modulate = Color(2, 2, 2)
 	
 	await get_tree().create_timer(0.1).timeout
-	if is_instance_valid(sprite):
+	if is_instance_valid(sprite) and is_instance_valid(enemy):  # CHECK BOTH
 		sprite.modulate = original
 
 func create_circle_polygon(radius: float, points: int) -> PackedVector2Array:
