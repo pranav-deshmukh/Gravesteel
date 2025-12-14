@@ -2,7 +2,7 @@ class_name Gun
 extends Area2D
 
 @export var damage: float = 10.0
-@export var attack_speed: float = 1.0
+@export var attack_speed: float = 0.5
 @export var bullet_count: int = 1
 @export var pierce_count: int = 0
 @export var bullet_speed: float = 300.0

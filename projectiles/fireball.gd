@@ -3,7 +3,7 @@ extends Area2D
 
 var speed = 300.0
 var direction = Vector2.ZERO
-var damage = 100.0
+var damage = 20.0
 
 var max_distance = 800.0  # Maximum travel distance
 var distance_traveled = 0.0
@@ -13,8 +13,8 @@ var lifetime = 3.0  # Seconds before auto-destroy
 var time_alive = 0.0
 
 func _ready():
-	collision_layer = 0
-	collision_mask = 1
+	#collision_layer = 0
+	#collision_mask = 1
 	body_entered.connect(_on_body_entered)
 	area_entered.connect(_on_area_entered)
 

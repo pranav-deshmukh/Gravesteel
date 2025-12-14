@@ -117,15 +117,15 @@ func create_lightning_bolt(target_pos: Vector2):
 	bolt.global_position = Vector2.ZERO
 	
 	# Main bolt (thick, bright white)
-	var main_bolt = create_bolt_line(start_pos, target_pos, 8, Color(1, 1, 1, 1))
-	bolt.add_child(main_bolt)
-	
+	#var main_bolt = create_bolt_line(start_pos, target_pos, 8, Color(1, 1, 1, 1))
+	#bolt.add_child(main_bolt)
+	#
 	# Inner glow (cyan)
-	var glow = create_bolt_line(start_pos, target_pos, 15, Color(0.5, 0.8, 1, 0.6))
+	var glow = create_bolt_line(start_pos, target_pos, 10, Color(0.5, 0.8, 1, 0.6))
 	bolt.add_child(glow)
 	
 	# Outer glow (blue, transparent)
-	var outer = create_bolt_line(start_pos, target_pos, 25, Color(0.3, 0.5, 1, 0.3))
+	var outer = create_bolt_line(start_pos, target_pos, 12, Color(0.3, 0.5, 1, 0.3))
 	bolt.add_child(outer)
 	
 	# Branch bolts (smaller offshoots)
@@ -140,13 +140,14 @@ func create_lightning_bolt(target_pos: Vector2):
 	create_electric_particles(target_pos)
 	
 	# Screen flash white
-	create_screen_flash()
+	#create_screen_flash()
 	
 	# BIG screen shake
 	if player and player.has_method("shake_camera"):
 		player.shake_camera(12)
 	
 	# Play thunder sound (TODO: add AudioStreamPlayer)
+	$lightning_sound.play()
 	
 	# Bolt flickers and fades
 	flicker_and_fade(bolt)

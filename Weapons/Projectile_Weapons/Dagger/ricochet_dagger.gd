@@ -102,7 +102,7 @@ func upgrade():
 			max_bounces = 6
 		7:
 			attack_speed *= 1.5
-			attack_timer.wait_time = 1.0 / attack_speed
+			#attack_timer.wait_time = 1.0 / attack_speed
 			damage *= 1.4
 		8:
 			max_bounces = 8

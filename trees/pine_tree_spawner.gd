@@ -18,7 +18,7 @@ func spawn_trees_around_player():
 		for y in range(player_chunk.y - spawn_radius_chunks, player_chunk.y + spawn_radius_chunks + 1):
 			var chunk_key = Vector2i(x, y)
 			var chunk_pos = Vector2(chunk_key) * chunk_size
-			# ✅ Only spawn if chunk is inside world bounds
+			
 			if not is_chunk_inside_world(chunk_pos):
 				continue
 			if not spawned_chunks.has(chunk_key):

@@ -21,7 +21,7 @@ var max_levels: int = 3
 
 # Wave system
 var current_wave: int = 0
-var waves_per_level: int = 1
+var waves_per_level: int = 3
 var wave_duration: float = 30.0
 var wave_timer: float = 0.0
 var wave_active: bool = false
@@ -235,6 +235,7 @@ func _on_upgrade_chosen(upgrade):
 		"health":
 			player.max_health *= upgrade.value
 			player.health = player.max_health
+			player.update_health_bar()  # Update UI immediately!
 		"damage":
 			player.damage *= upgrade.value
 		"attack_speed":

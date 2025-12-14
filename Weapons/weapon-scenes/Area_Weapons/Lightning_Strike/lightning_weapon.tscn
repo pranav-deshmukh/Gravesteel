@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://i1ms0hal5uh2"]
+[gd_scene load_steps=3 format=3 uid="uid://i1ms0hal5uh2"]
 
 [ext_resource type="Script" uid="uid://dm60f1avn7hmt" path="res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_weapon.gd" id="1_7sxcy"]
+[ext_resource type="AudioStream" uid="uid://c8f1gbuyt0giw" path="res://Weapons/weapon-scenes/Area_Weapons/Lightning_Strike/lightning_strike_sound.mp3" id="2_tkale"]
 
 [node name="LightningWeapon" type="Node2D"]
 script = ExtResource("1_7sxcy")
 damage = 20.0
+
+[node name="lightning_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_tkale")

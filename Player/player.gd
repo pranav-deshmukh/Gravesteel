@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal health_depleted
 signal coin_collected(coins)
 
-@export var move_speed: float = 300
+@export var move_speed: float = 180
 @export var max_health: float = 100.0
 @export var damage: float = 10.0
 @export var attack_speed: float = 1.0
@@ -35,6 +35,9 @@ func _ready():
 	
 	# Setup blood splatter effect
 	setup_blood_effect()
+	
+	# Initialize health bar
+	update_health_bar()
 	
 	# Start with orbit weapon
 	var orbit_weapon = preload("res://Weapons/weapon-scenes/orbs/orbit_weapon.tscn")
@@ -83,6 +86,12 @@ func setup_blood_effect():
 	
 	blood_canvas.add_child(blood_particles)
 
+func update_health_bar():
+	# Update the health bar - this is the key function!
+	if %HealthBar:
+		%HealthBar.max_value = max_health
+		%HealthBar.value = health
+
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	position.x = clamp(position.x, -world_size.x/2, world_size.x/2)
@@ -112,7 +121,9 @@ func _physics_process(delta):
 			is_taking_damage = true
 			trigger_blood_effect()
 		
-		%HealthBar.value = health
+		# Update health bar immediately
+		update_health_bar()
+		
 		if health <= 0.0:
 			health_depleted.emit()
 	else:
@@ -184,3 +195,22 @@ func shake_camera(intensity: float = 5.0):
 		Vector2(randf_range(-intensity, intensity), 
 				randf_range(-intensity, intensity)), 0.1)
 	tween.tween_property(camera, "offset", Vector2.ZERO, 0.1)
+
+func take_damage(damage_amount: int):
+	health -= damage_amount
+	
+	# Update health bar immediately
+	update_health_bar()
+	
+	# Trigger visual feedback
+	shake_camera(30)
+	trigger_blood_effect()
+	
+	# Check for death
+	if health <= 0.0:
+		health_depleted.emit()
+	
+	# Stop blood effect after a short delay if not continuously taking damage
+	if not is_taking_damage:
+		await get_tree().create_timer(0.3).timeout
+		stop_blood_effect()
