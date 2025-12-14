@@ -121,15 +121,15 @@ func create_lightning_bolt(target_pos: Vector2):
 	#bolt.add_child(main_bolt)
 	#
 	# Inner glow (cyan)
-	var glow = create_bolt_line(start_pos, target_pos, 10, Color(0.5, 0.8, 1, 0.6))
+	var glow = create_bolt_line(start_pos, target_pos, 10, Color(0.0, 0.475, 0.694, 0.808))
 	bolt.add_child(glow)
 	
 	# Outer glow (blue, transparent)
-	var outer = create_bolt_line(start_pos, target_pos, 12, Color(0.3, 0.5, 1, 0.3))
-	bolt.add_child(outer)
+	#var outer = create_bolt_line(start_pos, target_pos, 12, Color(0.3, 0.5, 1, 0.3))
+	#bolt.add_child(outer)
 	
 	# Branch bolts (smaller offshoots)
-	create_branch_bolts(bolt, start_pos, target_pos)
+	#create_brandch_bolts(bolt, start_pos, target_pos)
 	
 	get_tree().current_scene.add_child(bolt)
 	
