@@ -1,6 +1,6 @@
 extends StaticBody2D
 @export var tree_scene: PackedScene
-@export var chunk_size: int = 512
+@export var chunk_size: int = 700
 @export var trees_per_chunk: int = 1
 @export var spawn_radius_chunks: int = 2
 # 🌍 Define your finite world boundaries
@@ -29,17 +29,15 @@ func spawn_chunk(chunk_pos: Vector2i):
 		push_error("ERROR: tree_scene is null in spawn_chunk!")
 		return
 	var rng = RandomNumberGenerator.new()
-	rng.seed = int(hash(chunk_pos)) # deterministic per chunk
+	rng.seed = int(hash(chunk_pos)) 
 	for i in range(trees_per_chunk):
 		var tree = tree_scene.instantiate()
 		var local_x = rng.randf_range(0, chunk_size)
 		var local_y = rng.randf_range(0, chunk_size)
 		var world_pos = Vector2(chunk_pos * chunk_size) + Vector2(local_x, local_y)
-		# ✅ Only place trees inside finite world
 		if is_point_inside_world(world_pos):
 			tree.position = world_pos
 			add_child(tree)
-# 🧭 Check helpers
 func is_point_inside_world(point: Vector2) -> bool:
 	var half = world_size / 2
 	return abs(point.x) <= half.x and abs(point.y) <= half.y

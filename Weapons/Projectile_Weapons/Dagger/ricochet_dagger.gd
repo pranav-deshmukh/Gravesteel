@@ -1,12 +1,12 @@
 class_name RicochetDagger
 extends Node2D
 
-@export var damage: float = 12.0
+@export var damage: float = 3.0
 @export var attack_speed: float = 1.2
 @export var dagger_count: int = 1
-@export var dagger_speed: float = 500.0
-@export var max_bounces: int = 3
-@export var bounce_range: float = 300.0
+@export var dagger_speed: float = 400.0
+@export var max_bounces: int = 2
+@export var bounce_range: float = 200.0
 @export var level: int = 1
 
 var attack_timer: Timer

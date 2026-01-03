@@ -1,7 +1,7 @@
 # orb.gd
 extends Area2D
 
-var damage: float = 10.0
+var damage: float = 2.0
 var hit_cooldown: Dictionary = {}  # enemy: time_last_hit
 
 func _ready():

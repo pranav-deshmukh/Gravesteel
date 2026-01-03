@@ -2,7 +2,7 @@ class_name FireAura
 extends Area2D  # Changed: Direct Area2D inheritance
 
 # Weapon stats
-@export var damage: float = 5.0
+@export var damage: float = 1.0
 @export var level: int = 1
 
 # Cooldown tracking

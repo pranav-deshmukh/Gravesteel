@@ -8,12 +8,11 @@ extends Node2D
 @onready var portal = preload("res://Portal/portal.tscn")
 @onready var tilemap = $TileMap
 
-
 var current_portal = null
 
 @export var world_size: Vector2 = Vector2(8000, 8000)
-@export var spawn_distance_min: float = 600.0  # Minimum distance from player
-@export var spawn_distance_max: float = 1200.0  # Maximum distance from player
+@export var spawn_distance_min: float = 600.0
+@export var spawn_distance_max: float = 600.0
 
 # Level system
 var current_level: int = 1
@@ -26,29 +25,38 @@ var wave_duration: float = 30.0
 var wave_timer: float = 0.0
 var wave_active: bool = false
 
-# Enemy type weights (higher = more common)
-var enemy_spawn_weights = {
-	1: {  # Level 1
-		"basic": 70,
-		"skull": 25,
-		"boss1": 3,
-		"boss2": 1,
-		"boss3": 20
+# ============================================================================
+# SPAWN PROGRESSION CONFIG - Easy to edit!
+# Format: time_in_seconds: [enemy_types_available]
+# ============================================================================
+var level_spawn_progression = {
+	1: {  # Level 1 - Easy start, gradual difficulty
+		0: ["skull"],           # 0-30s: Only skeletons
+		30: ["skull", "basic"], # 30-60s: Add orcs
+		60: ["skull", "basic", "boss1"], # 60-90s: Add boss1
+		90: ["skull", "basic", "boss1", "boss2"] # 90s+: Add boss2
 	},
-	2: {  # Level 2
-		"basic": 50,
-		"skull": 35,
-		"boss1": 8,
-		"boss2": 5,
-		"boss3": 2
+	2: {  # Level 2 - Faster progression
+		0: ["skull"],           # 0-25s: Only skeletons
+		25: ["skull", "basic"], # 25-50s: Add orcs
+		50: ["skull", "basic", "boss1"], # 50-75s: Add boss1
+		75: ["skull", "basic", "boss1", "boss2", "boss3"] # 75s+: Add all
 	},
-	3: {  # Level 3
-		"basic": 30,
-		"skull": 40,
-		"boss1": 15,
-		"boss2": 10,
-		"boss3": 5
+	3: {  # Level 3 - Aggressive start
+		0: ["skull", "basic"],  # 0-20s: Skeletons + Orcs
+		20: ["skull", "basic", "boss1"], # 20-40s: Add boss1
+		40: ["skull", "basic", "boss1", "boss2"], # 40-60s: Add boss2
+		60: ["skull", "basic", "boss1", "boss2", "boss3"] # 60s+: Everything
 	}
+}
+
+# Enemy spawn weights (higher = more common in the pool)
+var enemy_base_weights = {
+	"skull": 50,   # Most common
+	"basic": 35,   # Common
+	"boss1": 10,   # Uncommon
+	"boss2": 4,    # Rare
+	"boss3": 1     # Very rare
 }
 
 # Level configurations
@@ -148,38 +156,57 @@ func is_point_inside_world(point: Vector2) -> bool:
 	var half = world_size / 2
 	return abs(point.x) <= half.x and abs(point.y) <= half.y
 
-# Get random spawn position around player
 func get_random_spawn_position() -> Vector2:
-	var angle = randf() * TAU  # Random angle (0 to 2π)
+	var angle = randf() * TAU
 	var distance = randf_range(spawn_distance_min, spawn_distance_max)
 	
 	var offset = Vector2(cos(angle), sin(angle)) * distance
 	var spawn_pos = player.global_position + offset
 	
-	# Clamp to world bounds
 	var half = world_size / 2
 	spawn_pos.x = clamp(spawn_pos.x, -half.x, half.x)
 	spawn_pos.y = clamp(spawn_pos.y, -half.y, half.y)
 	
 	return spawn_pos
 
-# Weighted random selection
+# Get available enemy types based on current time in wave
+func get_available_enemy_types() -> Array:
+	var progression = level_spawn_progression[current_level]
+	var available = []
+	
+	# Find the highest time threshold we've passed
+	var current_time = wave_timer
+	var highest_time = 0
+	
+	for time_key in progression.keys():
+		if current_time >= time_key and time_key > highest_time:
+			highest_time = time_key
+	
+	available = progression[highest_time]
+	return available
+
+# Weighted random selection from available enemies
 func choose_enemy_type() -> String:
-	var weights = enemy_spawn_weights[current_level]
+	var available = get_available_enemy_types()
+	
+	if available.is_empty():
+		return "skull"  # Fallback
+	
+	# Calculate total weight for available enemies
 	var total_weight = 0
+	for enemy_type in available:
+		total_weight += enemy_base_weights[enemy_type]
 	
-	for weight in weights.values():
-		total_weight += weight
-	
+	# Pick random based on weight
 	var random_value = randf() * total_weight
 	var cumulative = 0
 	
-	for enemy_type in weights.keys():
-		cumulative += weights[enemy_type]
+	for enemy_type in available:
+		cumulative += enemy_base_weights[enemy_type]
 		if random_value <= cumulative:
 			return enemy_type
 	
-	return "basic"  # Fallback
+	return available[0]  # Fallback to first available
 
 func spawn_mob():
 	var enemy_type = choose_enemy_type()
@@ -235,7 +262,7 @@ func _on_upgrade_chosen(upgrade):
 		"health":
 			player.max_health *= upgrade.value
 			player.health = player.max_health
-			player.update_health_bar()  # Update UI immediately!
+			player.update_health_bar()
 		"damage":
 			player.damage *= upgrade.value
 		"attack_speed":

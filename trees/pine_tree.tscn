@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2qg1nuvfnd4q"]
+[gd_scene load_steps=3 format=3 uid="uid://c2qg1nuvfnd4q"]
 
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_g7t2f"]
-[ext_resource type="Texture2D" uid="uid://caqfk2xng5v5u" path="res://trees/pine_tree.png" id="2_hd1ds"]
+[ext_resource type="Texture2D" uid="uid://ch67stjk57j1n" path="res://map-sprites/tile311.png" id="1_0x0ee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_im3ph"]
 radius = 22.4571
@@ -12,14 +11,8 @@ radius = 22.4571
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_im3ph")
 
-[node name="GroundShadow" type="Sprite2D" parent="."]
-modulate = Color(0.898039, 0.878431, 0.831373, 1)
-z_index = -1
-z_as_relative = false
-scale = Vector2(0.817308, 0.817308)
-texture = ExtResource("1_g7t2f")
-
 [node name="PineTree" type="Sprite2D" parent="."]
-position = Vector2(0, -90)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_hd1ds")
+texture_filter = 1
+position = Vector2(-4.9999995, -7.0000076)
+scale = Vector2(6.97, 6.97)
+texture = ExtResource("1_0x0ee")

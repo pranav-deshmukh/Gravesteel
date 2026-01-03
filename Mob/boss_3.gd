@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal died
 
 var speed = randf_range(80, 105)
-var health: float = 5.0
+var health: float = 70.0
 @onready var player = get_node("/root/Game/Player")
 
 # Projectile attack variables

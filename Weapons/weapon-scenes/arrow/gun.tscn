@@ -37,7 +37,7 @@ scale = Vector2(0.24892654, 0.24892654)
 gizmo_extents = 30.6
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.353
+wait_time = 2.518
 autostart = true
 
 [node name="Arrow_sound" type="AudioStreamPlayer2D" parent="."]

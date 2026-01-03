@@ -1,12 +1,12 @@
 class_name BoomerangBlades
 extends Node2D
 
-@export var damage: float = 18.0
+@export var damage: float = 2
 @export var blade_count: int = 1
-@export var throw_speed: float = 700.0
-@export var return_speed: float = 700.0
+@export var throw_speed: float = 500.0
+@export var return_speed: float = 400.0
 @export var max_distance: float = 350.0
-@export var throw_interval: float = 2.5
+@export var throw_interval: float = 7
 @export var level: int = 1
 
 @onready var boomerang_sound = $boomerang_throw
@@ -293,7 +293,7 @@ func upgrade():
 			throw_speed = 870.0
 		5:
 			max_distance = 480.0
-			throw_interval = 2.0
+			throw_interval = 3
 		6:
 			blade_count = 3
 			damage *= 1.5
@@ -303,4 +303,4 @@ func upgrade():
 		8:
 			blade_count = 4
 			damage *= 2.0
-			throw_interval = 1.5
+			throw_interval =2

@@ -1,9 +1,9 @@
 class_name ArcaneConduit
 extends Node2D
 
-@export var damage: float = 20.0
+@export var damage: float = 10.0
 @export var beam_duration: float = 1.5  # How long beam stays visible
-@export var cooldown: float = 5.0  # Fire every 5 seconds
+@export var cooldown: float = 10.0  # Fire every 5 seconds
 @export var beam_width: float = 20.0
 @export var max_range: float = 600.0  # Start shorter
 @export var level: int = 1
