@@ -5,7 +5,7 @@ extends Node
 @export var available_weapons: Array[PackedScene] = []
 
 var active_weapons: Array = []
-var max_weapons: int = 6
+var max_weapons: int = 8
 
 @onready var weapon_display = get_tree().root.get_node("Game/HUD/ColorRect")
 
@@ -61,7 +61,7 @@ func get_random_upgrade_options() -> Array:
 	
 	# Option 2-3: Upgrade existing weapons
 	for weapon in active_weapons:
-		if weapon.level < 6:  # Max level
+		if weapon.level < 8:  # Max level
 			options.append({
 				"type": "upgrade",
 				"name": weapon.name + " Level " + str(weapon.level + 1),

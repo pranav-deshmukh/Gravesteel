@@ -31,16 +31,16 @@ var wave_active: bool = false
 # ============================================================================
 var level_spawn_progression = {
 	1: {  # Level 1 - Easy start, gradual difficulty
-		0: ["skull"],           # 0-30s: Only skeletons
+		0: ["skull", "heavy_mech", "combat_drone"],           # 0-30s: Only skeletons
 		30: ["skull", "basic"], # 30-60s: Add orcs
-		60: ["skull", "basic", "boss1"], # 60-90s: Add boss1
+		60: ["skull", "basic", "boss1", "combat_drone"], # 60-90s: Add boss1
 		90: ["skull", "basic", "boss1", "boss2"] # 90s+: Add boss2
 	},
 	2: {  # Level 2 - Faster progression
 		0: ["skull"],           # 0-25s: Only skeletons
 		25: ["skull", "basic"], # 25-50s: Add orcs
 		50: ["skull", "basic", "boss1"], # 50-75s: Add boss1
-		75: ["skull", "basic", "boss1", "boss2", "boss3"] # 75s+: Add all
+		75: ["skull", "basic", "boss1", "boss2", "boss3"] # 75s+: Add allwww
 	},
 	3: {  # Level 3 - Aggressive start
 		0: ["skull", "basic"],  # 0-20s: Skeletons + Orcs
@@ -53,6 +53,8 @@ var level_spawn_progression = {
 # Enemy spawn weights (higher = more common in the pool)
 var enemy_base_weights = {
 	"skull": 50,   # Most common
+	"combat_drone":2,
+	"heavy_mech":2,
 	"basic": 35,   # Common
 	"boss1": 10,   # Uncommon
 	"boss2": 4,    # Rare
@@ -229,6 +231,10 @@ func spawn_mob():
 			enemy = preload("res://Mob/boss_2.tscn").instantiate()
 		"boss3":
 			enemy = preload("res://Mob/boss_3.tscn").instantiate()
+		"combat_drone":
+			enemy = preload("res://Items/combat_drone.tscn").instantiate()
+		"heavy_mech":
+			enemy = preload("res://Items/heavy_mech.tscn").instantiate()
 	
 	if enemy:
 		# Apply level scaling

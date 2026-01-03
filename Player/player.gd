@@ -4,7 +4,7 @@ signal health_depleted
 signal coin_collected(coins)
 
 @export var move_speed: float = 180
-@export var max_health: float = 100.0
+@export var max_health: float = 10000000.0
 @export var damage: float = 10.0
 @export var attack_speed: float = 1.0
 @export var world_size: Vector2 = Vector2(8000, 8000)

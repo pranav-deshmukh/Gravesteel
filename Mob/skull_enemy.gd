@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal died
 
 var speed = randf_range(80, 110)
-var health: float = 1.0
+var health: float = 50.0
 
 # Coin drop settings - Easy to edit!
 @export var coin_drop_chance: float = 0.3  # 30% chance to drop coin (0.0 = never, 1.0 = always)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://clsnt11ypsqly"]
+
+[ext_resource type="Script" uid="uid://dcnha3t704qdr" path="res://Items/combat_drone.gd" id="1_6hcd8"]
+[ext_resource type="Texture2D" uid="uid://diiijawcc7414" path="res://Items/combat_drone.png" id="2_y73rs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruitb"]
+atlas = ExtResource("2_y73rs")
+region = Rect2(0, 1, 122, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6laq"]
+atlas = ExtResource("2_y73rs")
+region = Rect2(0, 102, 122, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j8xi8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruitb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6laq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjrn8"]
+radius = 20.024984
+
+[node name="CombatDrone" type="CharacterBody2D"]
+script = ExtResource("1_6hcd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_j8xi8")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yjrn8")
